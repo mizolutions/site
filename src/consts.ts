@@ -25,7 +25,9 @@ export const BUTTONDOWN_USERNAME =
 
 export const SOCIALS = [
   { label: 'GitHub', href: 'https://github.com/mizolutions' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/mizolutions' },
-  { label: 'X', href: 'https://x.com/mizolutions' },
-  { label: 'Email', href: 'mailto:hello@mizolutions.com' },
+  { label: 'Email', href: CONTACT_HREF },
+  // Not created yet — re-enable each line once the account exists (tracked as
+  // S-02 in docs/control/RAID.md). Keep the handle `mizolutions` consistent.
+  // { label: 'LinkedIn', href: 'https://www.linkedin.com/company/mizolutions' },
+  // { label: 'X', href: 'https://x.com/mizolutions' },
 ] as const;

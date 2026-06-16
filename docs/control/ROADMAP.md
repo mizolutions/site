@@ -16,11 +16,13 @@
 
 > Lo más alto en impacto × oportunidad, sobre todo ahora que el repo es **público**.
 
-- **[Content] S-01 — Publicar 1er post del blog** (flip `draft:false`, EN+ES). Motor del build-in-public.
-- **[Content] S-02 — Identidad real** (socials + email en `src/consts.ts`; verificar que los handles existan).
-- **[Gov] S-07 — Higiene del repo público** (description + topics de GitHub; arreglar README "Private"→público).
+- **[Infra/Growth] S-20 — Email `hello@mizolutions.com` funcional** (forwarding vía Route53). **Bloquea el CTA primario** (hoy rebota). Agente cablea DNS; operador hace el signup del proveedor.
+- **[Growth] S-21 + S-22 — Crear LinkedIn + X** (`mizolutions` / `@mizolutions`, signup humano). Al existir, descomentar en `consts.ts`.
 - **[Seguridad] S-11 — Decisión account-id/zone-id** en docs públicos (aceptar vs redactar a futuro; ver R-07).
 - **[Infra] S-08 — Decisión Vercel Hobby → Pro** (uso comercial; o evaluar Cloudflare Pages).
+
+### ✅ Hechas
+- **S-07** higiene repo (description/topics/homepage) · **S-01** 1er post publicado (EN+ES) · **S-02** footer honesto (solo enlaces reales).
 
 ## ⏭️ Next (semanas)
 
@@ -31,6 +33,7 @@
 - **[DNS] S-09 — `www.mizolutions.com`** redirect al apex.
 - **[Growth] S-12 — CTA "Book a reliability review"** → Cal.com (o mantener `mailto:`).
 - **[Gov] S-13 — Decisión de LICENSE** del repo público.
+- **[Gov] S-23 — Pulir el perfil del GitHub org** (nombre/avatar/descripción/link a `mizolutions.com`).
 
 ## 🌅 Later (cuando aplique)
 

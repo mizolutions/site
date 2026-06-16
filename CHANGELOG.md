@@ -23,6 +23,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   disclosure decision) items.
 
 ### Changed
+- **Honest footer + identity reality (S-02).** Verified `github.com/mizolutions`
+  exists (the repo's org) and kept it + email in the footer; commented out the
+  not-yet-created LinkedIn/X links in `src/consts.ts` so the site ships **no dead
+  links**. Tracked the missing identities as S-20 (email DNS, **CTA blocker**),
+  S-21 (LinkedIn), S-22 (X), S-23 (GitHub org profile polish).
 - **Published the first blog post (S-01).** _"From storing logs to real
   observability"_ (EN) + _"De guardar logs a tener observabilidad de verdad"_ (ES)
   flipped from draft to live; build now emits 7 pages, `astro check` 0/0/0.

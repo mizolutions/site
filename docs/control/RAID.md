@@ -3,7 +3,7 @@
 > **R**isks · **A**ssumptions · **I**ssues · **D**ecisions
 > Tabla viva. Actualizar en cada cierre de sesión si hubo cambios.
 > Si un ítem lleva > 30 días sin movimiento, re-evaluar o cerrar.
-> **Última actualización:** 2026-06-16 (repo flipeado a **público** [build-in-public] + backlog completo poblado, S-01..S-19)
+> **Última actualización:** 2026-06-16 (identidades: footer honesto S-02 ✅ + tareas S-20..S-23 para email/LinkedIn/X/GitHub-profile; backlog S-01..S-23)
 
 ---
 
@@ -43,7 +43,7 @@
 | ID | Título corto | Dominio | Prio | Estado | Notas |
 |---|---|---|---|---|---|
 | S-01 | Publicar 1er post del blog (flip `draft:false`) | Content | P2 | ✅ | **Hecho 2026-06-16:** _logs→observabilidad_ publicado EN (`/blog/logs-to-observability`) + ES (`/es/blog/de-logs-a-observabilidad`); build 7 páginas, check 0/0/0 |
-| S-02 | Socials + email reales en `src/consts.ts` | Content | P2 | ⬜ | Hoy placeholders (`hello@mizolutions.com`, github/linkedin/x). **Verificar que los handles existan** antes de linkear |
+| S-02 | Footer honesto: solo enlaces reales (sin links muertos) | Content | P2 | ✅ | **Hecho 2026-06-16:** verificado que `github.com/mizolutions` **sí existe** (org del repo) → footer = GitHub + email; X/LinkedIn comentados en `consts.ts` hasta crearse (S-21/S-22) |
 | S-03 | Conectar newsletter Buttondown + probar form | Growth | P3 | ⬜ | `PUBLIC_BUTTONDOWN_USERNAME` real (env Vercel o `consts.ts`); enviar un test de alta |
 | S-04 | OG image 1200×630 + `twitter:card=summary_large_image` | SEO | P3 | ⬜ | Hoy sin `og:image`/`twitter:image`; añadir asset en `public/` + meta en `BaseHead.astro` |
 | S-05 | Vercel Web Analytics (sin cookies) | Analytics | P3 | ⬜ | No cableado; sin cookies → sin banner. Mide tráfico por locale (valida A-01) |
@@ -61,6 +61,10 @@
 | S-17 | `app.mizolutions.com` (SaaS de señales) = proyecto **separado** | Producto | L | ⬜ | Si nace el SaaS, va aparte (Next.js); NO acoplar a la landing (ADR-001) |
 | S-18 | Página de servicios / contacto (form o Cal.com) | Growth | L | ⬜ | Hoy la conversión es solo el CTA `mailto:`; una página de servicios ayudaría al SEO/venta |
 | S-19 | Montar GitHub Project si el backlog supera ~10 vivos | Gov | L | ⬜ | Hoy markdown basta (D-03); revisitar al crecer |
+| S-20 | **Email `hello@mizolutions.com` funcional** (forwarding vía Route53) | Infra/Growth | **P2** | ⬜ | **Bloquea el CTA primario** (`mailto:` rebota hoy: 0 MX en la zona). Agente cablea MX+TXT en Route53; operador hace el signup del proveedor. Ver D-08 |
+| S-21 | Crear LinkedIn company page `mizolutions` (humano) | Growth | P3 | ⬜ | Signup humano en LinkedIn; reservar handle `mizolutions`. Al existir, descomentar en `consts.ts` |
+| S-22 | Crear X `@mizolutions` (humano) | Growth | P3 | ⬜ | Signup humano en X (teléfono/captcha); reservar `@mizolutions`. Al existir, descomentar en `consts.ts` |
+| S-23 | Pulir perfil del GitHub org `mizolutions` | Gov | P4 | ⬜ | El org existe (1 repo) pero sin nombre/avatar/descripción/URL. Añadir nombre "Mizolutions", desc, link a `mizolutions.com`, avatar |
 
 ---
 
@@ -73,5 +77,6 @@
 | D-03 | 2026-06-15 | Tracking = **markdown control-tower** (sin GitHub Project por ahora; revisitar si el backlog crece) | — |
 | D-04 | 2026-06-16 | Branding **cloud-general** (no AWS-específico) en todo el copy | [ADR-003](../adr/003-cloud-general-branding.md) |
 | D-05 | 2026-06-16 | DNS: mantener la zona en **Route53** (cuenta PROD trading) y apuntar a Vercel con un `A`; **no** delegar NS ni meterlo en el CDK del trading | [ADR-004](../adr/004-dns-route53-zone-vercel-a-record.md) |
+| D-08 | 2026-06-16 | Realidad de identidades: **GitHub org existe** (link real); **email/LinkedIn/X NO** → footer muestra solo lo real; email se cablea por DNS (agente) + signup (operador); LinkedIn/X son signup humano. Handle consistente: `mizolutions` | — |
 | D-06 | 2026-06-16 | Repo `mizolutions/site` **público** (build-in-public), separado del trading-system. *(Creado privado; flipeado a público a petición del operador el 2026-06-16.)* | — |
 | D-07 | 2026-06-16 | Tracking del backlog completo (S-01..S-19) en RAID + ROADMAP; pendiente la decisión consciente de redacción de account-ids (S-11) | — |
