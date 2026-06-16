@@ -204,4 +204,7 @@ fixed, or before adopting SSR / server islands.
 
 ## License
 
-Private. © Mizolutions. All rights reserved.
+Public repository (build-in-public), **no open-source license** — all rights
+reserved. © Mizolutions. The source is viewable, but reuse/redistribution is not
+granted (a brand/marketing site is not meant to be forked). An explicit license
+decision is tracked as **S-13** in [docs/control/RAID.md](docs/control/RAID.md).

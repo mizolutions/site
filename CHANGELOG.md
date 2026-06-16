@@ -16,6 +16,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   RAID, ROADMAP, NEXT_SESSION_PROMPT, README), `docs/adr/` (ADR-001..005 capturing
   decisions already made), `docs/worklog/`, and this CHANGELOG — mirroring the
   trading-system's discipline, right-sized for a landing site.
+- **Full backlog tracked (S-01..S-19)** in [RAID §I](docs/control/RAID.md) +
+  [ROADMAP](docs/control/ROADMAP.md): content (publish 1st post, real socials),
+  SEO (OG image, analytics, ES 404), infra (www redirect, Hobby→Pro, blog
+  subdomain), and governance (repo description/topics, LICENSE, account-id
+  disclosure decision) items.
+
+### Changed
+- **Repository flipped to public** (build-in-public) at the operator's request.
+  Recorded as RAID D-06; the now-public control docs reference the AWS account-id
+  and Route53 zone-id (RAID R-07) — a conscious accept/redact decision is tracked
+  as S-11. Fixed the README license section (was "Private").
 
 ## [0.1.0] — 2026-06-16
 

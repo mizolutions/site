@@ -14,7 +14,7 @@ humano dispone**: cambios de copy/diseño los preparas y me pides OK antes de
 mergear/desplegar a producción.
 
 ## 0. Contexto del proyecto (NO confundir con el trading-system)
-- **Este repo:** `mizolutions/site` (privado). Local:
+- **Este repo:** `mizolutions/site` (**público**, build-in-public). Local:
   `/home/dc-user/workspace/mizolutions-site` (**sibling** del trading-system,
   **fuera** del workspace VS Code → usa terminal + rutas absolutas, `grep_search`/
   `file_search` no lo ven).
@@ -35,16 +35,17 @@ mergear/desplegar a producción.
 - Tono: directo, técnico, sin humo de marketing. Audiencia: CTOs, Tech Leads, Founders.
 
 ## 2. Estado al cerrar (verificar con `git status -sb`)
-- `main` = `931bd55` (+ commit de esta capa de control si ya quedó). Sitio LIVE,
-  deploy Ready, DNS Valid + SSL.
-- **0 incidencias bloqueantes.** El sitio está sano; lo pendiente es pulido/crecimiento.
+- `main` = `fe6925e`. Sitio LIVE, deploy Ready, DNS Valid + SSL. Repo **público**.
+- **0 incidencias bloqueantes.** El sitio está sano; hay **19 tareas de
+  pulido/crecimiento trackeadas** (S-01..S-19 en [RAID §I](RAID.md) + [ROADMAP](ROADMAP.md)).
 
 ## 3. Pendientes (Top-3, ver [ROADMAP](ROADMAP.md) → Now)
-1. **Publicar 1er post del blog** — revisar borrador EN+ES (`src/content/blog/`),
-   flip `draft:false` (S-01).
-2. **Identidad real** — socials + email en `src/consts.ts` (S-02); username de
-   Buttondown para la newsletter (S-03).
-3. **OG image + Vercel Analytics** (S-04).
+1. **S-01 — Publicar 1er post del blog** (revisar borrador EN+ES en
+   `src/content/blog/`, flip `draft:false`).
+2. **S-07 + S-11 — Higiene del repo público** (description + topics de GitHub,
+   README "Private"→público ya hecho; **decidir** account-id/zone-id en docs, R-07).
+3. **S-02 + S-08 — Identidad + hosting** (socials/email reales en `src/consts.ts`;
+   decidir Vercel Hobby→Pro).
 
 ## 4. Cómo trabajar el sitio
 ```bash
