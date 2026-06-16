@@ -23,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   disclosure decision) items.
 
 ### Changed
+- **Contact address → `ping@mizolutions.com`** (was `hello@`), in `src/consts.ts`
+  + `.env.example`; CTA and footer updated across EN/ES. Mailbox to be provisioned
+  via **Zoho Mail Free** + Route53 DNS (S-20).
 - **Honest footer + identity reality (S-02).** Verified `github.com/mizolutions`
   exists (the repo's org) and kept it + email in the footer; commented out the
   not-yet-created LinkedIn/X links in `src/consts.ts` so the site ships **no dead

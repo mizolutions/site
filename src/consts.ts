@@ -17,7 +17,7 @@ export const SITE = {
 
 /** Contact target for the primary CTA. Swap mailto for a Cal.com link if desired. */
 export const CONTACT_HREF =
-  import.meta.env.PUBLIC_CONTACT_HREF ?? 'mailto:hello@mizolutions.com';
+  import.meta.env.PUBLIC_CONTACT_HREF ?? 'mailto:ping@mizolutions.com';
 
 /** Buttondown username used by the newsletter embed form action. */
 export const BUTTONDOWN_USERNAME =

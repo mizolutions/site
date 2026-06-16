@@ -61,7 +61,7 @@
 | S-17 | `app.mizolutions.com` (SaaS de señales) = proyecto **separado** | Producto | L | ⬜ | Si nace el SaaS, va aparte (Next.js); NO acoplar a la landing (ADR-001) |
 | S-18 | Página de servicios / contacto (form o Cal.com) | Growth | L | ⬜ | Hoy la conversión es solo el CTA `mailto:`; una página de servicios ayudaría al SEO/venta |
 | S-19 | Montar GitHub Project si el backlog supera ~10 vivos | Gov | L | ⬜ | Hoy markdown basta (D-03); revisitar al crecer |
-| S-20 | **Email `hello@mizolutions.com` funcional** (forwarding vía Route53) | Infra/Growth | **P2** | ⬜ | **Bloquea el CTA primario** (`mailto:` rebota hoy: 0 MX en la zona). Agente cablea MX+TXT en Route53; operador hace el signup del proveedor. Ver D-08 |
+| S-20 | **Email `ping@mizolutions.com` funcional** (Zoho Mail Free vía Route53) | Infra/Growth | **P2** | 🔄 | **Bloquea el CTA primario** (`mailto:` rebota hoy: 0 MX). ✅ Sitio ya apunta a `ping@`. **Falta:** operador hace signup Zoho + me pasa la TXT de verificación + DKIM → aplico MX/SPF/DKIM en Route53. Ver D-08 |
 | S-21 | Crear LinkedIn company page `mizolutions` (humano) | Growth | P3 | ⬜ | Signup humano en LinkedIn; reservar handle `mizolutions`. Al existir, descomentar en `consts.ts` |
 | S-22 | Crear X `@mizolutions` (humano) | Growth | P3 | ⬜ | Signup humano en X (teléfono/captcha); reservar `@mizolutions`. Al existir, descomentar en `consts.ts` |
 | S-23 | Pulir perfil del GitHub org `mizolutions` | Gov | P4 | ⬜ | El org existe (1 repo) pero sin nombre/avatar/descripción/URL. Añadir nombre "Mizolutions", desc, link a `mizolutions.com`, avatar |
