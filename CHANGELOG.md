@@ -23,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   disclosure decision) items.
 
 ### Changed
+- **Repo public hygiene (S-07).** Set the GitHub repo description + 13 topics
+  (astro, sre, reliability-engineering, devops, cloud, i18n, …) and pointed the
+  homepage at `https://mizolutions.com` (was the Vercel preview URL).
 - **Repository flipped to public** (build-in-public) at the operator's request.
   Recorded as RAID D-06; the now-public control docs reference the AWS account-id
   and Route53 zone-id (RAID R-07) — a conscious accept/redact decision is tracked

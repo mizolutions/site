@@ -9,8 +9,8 @@
 > **backlog completo poblado: 19 tareas S-01..S-19** en [RAID §I](RAID.md) +
 > [ROADMAP](ROADMAP.md)) — **el sitio está LIVE en `https://mizolutions.com`**
 > (Astro 5 estático en Vercel, bilingüe EN/ES, DNS Route53 → Vercel + SSL auto).
-> Repo `mizolutions/site` (**público**), `main` = `fe6925e`. **0 incidencias
-> bloqueantes; 19 tareas de pulido/crecimiento en backlog.**
+> Repo `mizolutions/site` (**público**), `main` = `4ab1a30`. **0 incidencias
+> bloqueantes; 19 tareas de pulido/crecimiento en backlog (1 hecha: S-07).**
 >
 > **🟢 Sesión 2026-06-16 (bootstrap) — landing live + torre de control.** (1)
 > Scaffolding Astro 5 estático (dark, bilingüe, tokens CSS a mano, cero JS),
@@ -35,7 +35,7 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 | 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
 | 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · analytics · newsletter | SEO base OK (canonical+hreflang+OG+sitemap+robots). **Pendiente:** OG image (S-04), Analytics OFF (S-05), newsletter sin username real (S-03), CTA→mailto (S-12) | tú |
 | 5 | **Security / Deps** | 🟢 | headers · npm audit | CSP+HSTS+headers vía `vercel.json`. `npm audit`: 3 highs **aceptados** (no aplican a build estático). **Repo público** → account-id/zone-id en docs (R-07, decisión S-11) | tú |
-| 6 | **Governance / Repo** | 🟡 | description · topics · backlog | Repo **público** sin description/topics; README dice "Private" (S-07). LICENSE a decidir (S-13). Backlog 19 tareas trackeadas | tú |
+| 6 | **Governance / Repo** | � | description · topics · backlog | ✅ description + 13 topics + homepage→`mizolutions.com` (S-07 hecho). LICENSE a decidir (S-13). Backlog 19 tareas trackeadas (1 hecha) | tú |
 
 > **Regla del semáforo:** 🔴 = el sitio está caído o roto para visitantes; 🟡 =
 > deuda conocida con plan; 🟢 = ningún pendiente bloqueante; ⚪ = sin medir.
@@ -51,9 +51,9 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 1. **Publicar el primer post del blog (S-01)** — revisar el borrador (EN+ES) y
    flipear `draft:false`. Es el motor del "build in public", y ahora que el repo
    es público pesa más. Dominio: Content.
-2. **Higiene del repo público (S-07 + S-11)** — description + topics de GitHub,
-   arreglar el README que aún dice "Private", y **decidir conscientemente** sobre
-   el account-id/zone-id ya visibles en docs (R-07). Dominio: Gov/Seguridad.
+2. **Higiene del repo público (✅ S-07 hecho · queda S-11)** — description + topics
+   + homepage ya aplicados; falta **decidir conscientemente** sobre el
+   account-id/zone-id ya visibles en docs (R-07). Dominio: Gov/Seguridad.
 3. **Cerrar identidad + decidir hosting (S-02 + S-08)** — socials/email reales en
    `src/consts.ts`; decidir Vercel Hobby→Pro (uso comercial). Dominio: Content/Infra.
 

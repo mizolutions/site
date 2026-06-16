@@ -48,7 +48,7 @@
 | S-04 | OG image 1200×630 + `twitter:card=summary_large_image` | SEO | P3 | ⬜ | Hoy sin `og:image`/`twitter:image`; añadir asset en `public/` + meta en `BaseHead.astro` |
 | S-05 | Vercel Web Analytics (sin cookies) | Analytics | P3 | ⬜ | No cableado; sin cookies → sin banner. Mide tráfico por locale (valida A-01) |
 | S-06 | Página 404 en ES | Content/i18n | P3 | ⬜ | Solo existe `/404` (EN); un visitante ES ve el 404 en inglés |
-| S-07 | Higiene del repo público: description + topics + README "Private"→público | Gov | P3 | ⬜ | Repo sin description ni topics; README dice "Private" (stale tras flip público) |
+| S-07 | Higiene del repo público: description + topics + homepage + README | Gov | P3 | ✅ | **Hecho 2026-06-16:** description + 13 topics + homepage→`mizolutions.com` (era el preview de Vercel); README license corregido |
 | S-08 | Decidir Vercel Hobby → **Pro** (uso comercial, ToS) | Infra | P2 | ⬜ | Hobby es no-comercial (R-02). Alternativa: Cloudflare Pages (gratis, comercial OK) |
 | S-09 | `www.mizolutions.com` → redirect al apex | Infra/DNS | P3 | ⬜ | Hoy solo el apex está configurado; añadir dominio en Vercel + `CNAME www` en Route53 |
 | S-10 | Decidir `blog.mizolutions.com` (redirect vs proyecto propio) | Infra/Content | P3 | ⬜ | Hoy el blog vive en `/blog`; subdominio opcional (ADR futuro) |
