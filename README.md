@@ -122,33 +122,37 @@ way — a distinct zone is a distinct failure domain. Do **not** add these recor
 to the `miz0.com` zone, and do **not** wire them into the trading-system CDK
 stacks (a trading deploy must never be able to touch the landing's DNS).
 
-**Recommended: keep the zone in Route53, point it at Vercel with two records.**
-The registrar _is_ Route53, so leave the nameservers on Route53 (do not delegate
-to Vercel) and just add the records Vercel asks for when you add the domain to the
-project — typically:
+**Recommended: keep the zone in Route53, point it at Vercel with an A record.**
+The registrar _is_ Route53, so leave the nameservers on Route53 (do **not**
+delegate to Vercel via the "Vercel DNS / nameservers" tab) and just add the
+record Vercel asks for under **Project → Settings → Domains → DNS Records**.
 
-| Record                 | Type    | Value                  |
-| ---------------------- | ------- | ---------------------- |
-| apex `mizolutions.com` | `A`     | `76.76.21.21`          |
-| `www`                  | `CNAME` | `cname.vercel-dns.com` |
+**Applied 2026-06-16** (zone `Z062327723TCUEVA9TY8M`, apex only — this is what
+Vercel currently requests):
 
-> Vercel shows the exact values in **Project → Settings → Domains** after you add
-> `mizolutions.com`. Use those if they differ.
+| Record                 | Type | Value           | TTL |
+| ---------------------- | ---- | --------------- | --- |
+| apex `mizolutions.com` | `A`  | `216.198.79.1`  | 300 |
 
-Apply them with the Route53 API (read the zone id first). From a host with the
-`trading` profile:
+> Vercel's newer apex IP is `216.198.79.1` (the older `76.76.21.21` and
+> `cname.vercel-dns.com` still work but are deprecated). Always use the value
+> Vercel shows you under **DNS Records**; do not use the **Vercel DNS** tab
+> (that delegates the whole zone). `www` is not required unless you add it as a
+> domain in Vercel (it will then ask for `CNAME www → cname.vercel-dns.com`).
+
+Applied with the Route53 API from a host with the `trading` profile:
 
 ```bash
-# find the hosted zone id for mizolutions.com
-~/bin/dc-aws 'AWS_PROFILE=trading aws route53 list-hosted-zones-by-name \
-  --dns-name mizolutions.com --query "HostedZones[0].Id" --output text'
-# then change-resource-record-sets with the A + CNAME above (replace ZONE_ID),
-# and verify in the Vercel dashboard once they resolve.
+~/bin/dc-aws 'AWS_PROFILE=trading aws route53 change-resource-record-sets \
+  --hosted-zone-id Z062327723TCUEVA9TY8M \
+  --change-batch "{\"Changes\":[{\"Action\":\"UPSERT\",\"ResourceRecordSet\":{\"Name\":\"mizolutions.com.\",\"Type\":\"A\",\"TTL\":300,\"ResourceRecords\":[{\"Value\":\"216.198.79.1\"}]}}]}"'
+# verify: dig +short mizolutions.com A   ->   216.198.79.1
+# then click Refresh on the domain in Vercel; Invalid -> Valid + auto SSL.
 ```
 
 Manage these records by hand (or in a small dedicated CDK stack later) — **not**
-inside the trading-system infra. Vercel issues SSL automatically once the records
-resolve.
+inside the trading-system infra. Vercel issues SSL automatically once the record
+resolves.
 
 ### Blog subdomain
 
