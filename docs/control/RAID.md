@@ -42,7 +42,7 @@
 
 | ID | Título corto | Dominio | Prio | Estado | Notas |
 |---|---|---|---|---|---|
-| S-01 | Publicar 1er post del blog (flip `draft:false`) | Content | P2 | ⬜ | Borrador EN+ES listo (`logs-to-observability`/`de-logs-a-observabilidad`); revisar y publicar |
+| S-01 | Publicar 1er post del blog (flip `draft:false`) | Content | P2 | ✅ | **Hecho 2026-06-16:** _logs→observabilidad_ publicado EN (`/blog/logs-to-observability`) + ES (`/es/blog/de-logs-a-observabilidad`); build 7 páginas, check 0/0/0 |
 | S-02 | Socials + email reales en `src/consts.ts` | Content | P2 | ⬜ | Hoy placeholders (`hello@mizolutions.com`, github/linkedin/x). **Verificar que los handles existan** antes de linkear |
 | S-03 | Conectar newsletter Buttondown + probar form | Growth | P3 | ⬜ | `PUBLIC_BUTTONDOWN_USERNAME` real (env Vercel o `consts.ts`); enviar un test de alta |
 | S-04 | OG image 1200×630 + `twitter:card=summary_large_image` | SEO | P3 | ⬜ | Hoy sin `og:image`/`twitter:image`; añadir asset en `public/` + meta en `BaseHead.astro` |

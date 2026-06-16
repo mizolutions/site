@@ -3,7 +3,7 @@ title: 'De guardar logs a tener observabilidad de verdad'
 description: 'Cómo instrumentar un sistema de trading algorítmico crítico convierte la sopa de logs en preguntas que sí puedes responder en producción.'
 pubDate: 2026-06-16
 lang: 'es'
-draft: true
+draft: false
 tags: ['observabilidad', 'sre', 'cloud', 'trading']
 ---
 

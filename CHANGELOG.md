@@ -23,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   disclosure decision) items.
 
 ### Changed
+- **Published the first blog post (S-01).** _"From storing logs to real
+  observability"_ (EN) + _"De guardar logs a tener observabilidad de verdad"_ (ES)
+  flipped from draft to live; build now emits 7 pages, `astro check` 0/0/0.
 - **Repo public hygiene (S-07).** Set the GitHub repo description + 13 topics
   (astro, sre, reliability-engineering, devops, cloud, i18n, …) and pointed the
   homepage at `https://mizolutions.com` (was the Vercel preview URL).

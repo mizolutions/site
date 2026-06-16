@@ -3,7 +3,7 @@ title: 'From storing logs to real observability'
 description: 'How instrumenting a critical algorithmic trading system turns log soup into questions you can actually answer in production.'
 pubDate: 2026-06-16
 lang: 'en'
-draft: true
+draft: false
 tags: ['observability', 'sre', 'cloud', 'trading']
 ---
 

@@ -10,7 +10,7 @@
 > [ROADMAP](ROADMAP.md)) — **el sitio está LIVE en `https://mizolutions.com`**
 > (Astro 5 estático en Vercel, bilingüe EN/ES, DNS Route53 → Vercel + SSL auto).
 > Repo `mizolutions/site` (**público**), `main` = `4ab1a30`. **0 incidencias
-> bloqueantes; 19 tareas de pulido/crecimiento en backlog (1 hecha: S-07).**
+> bloqueantes; 19 tareas de pulido/crecimiento en backlog (2 hechas: S-07, S-01).**
 >
 > **🟢 Sesión 2026-06-16 (bootstrap) — landing live + torre de control.** (1)
 > Scaffolding Astro 5 estático (dark, bilingüe, tokens CSS a mano, cero JS),
@@ -31,7 +31,7 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 | # | Dominio | Estado | KPI primario | Valor actual | Owner |
 |---|---|---|---|---|---|
 | 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`fe6925e`, Astro 5 estático, `npm run build` verde (5 páginas + sitemap), `astro check` 0/0/0 | tú |
-| 2 | **Content / Blog** | 🟡 | # posts publicados · copy fresco | Landing EN+ES completa. **Blog: 1 post en `draft:true`** (S-01). Socials/email placeholder (S-02). 404 solo EN (S-06) | tú |
+| 2 | **Content / Blog** | 🟡 | # posts publicados · copy fresco | Landing EN+ES completa. **Blog: 1 post publicado** (logs→observabilidad, EN+ES — S-01 ✅). Socials/email placeholder (S-02). 404 solo EN (S-06) | tú |
 | 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
 | 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · analytics · newsletter | SEO base OK (canonical+hreflang+OG+sitemap+robots). **Pendiente:** OG image (S-04), Analytics OFF (S-05), newsletter sin username real (S-03), CTA→mailto (S-12) | tú |
 | 5 | **Security / Deps** | 🟢 | headers · npm audit | CSP+HSTS+headers vía `vercel.json`. `npm audit`: 3 highs **aceptados** (no aplican a build estático). **Repo público** → account-id/zone-id en docs (R-07, decisión S-11) | tú |
@@ -48,9 +48,9 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 > son los siguientes pasos. Backlog completo (S-01..S-19) en [RAID §I](RAID.md) +
 > [ROADMAP](ROADMAP.md).
 
-1. **Publicar el primer post del blog (S-01)** — revisar el borrador (EN+ES) y
-   flipear `draft:false`. Es el motor del "build in public", y ahora que el repo
-   es público pesa más. Dominio: Content.
+1. **Cerrar identidad (S-02)** — socials/email reales en `src/consts.ts` (hoy
+   placeholders); ahora que hay un post publicado, los enlaces del footer importan
+   más. Dominio: Content.
 2. **Higiene del repo público (✅ S-07 hecho · queda S-11)** — description + topics
    + homepage ya aplicados; falta **decidir conscientemente** sobre el
    account-id/zone-id ya visibles en docs (R-07). Dominio: Gov/Seguridad.
@@ -80,5 +80,6 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 |---|---|---|
 | 2026-06-16 | Bootstrap: landing Astro 5 live + DNS Route53→Vercel + torre de control | `931bd55` |
 | 2026-06-16 | Repo → público; backlog completo (S-01..S-19) poblado en RAID + ROADMAP | `fe6925e` |
+| 2026-06-16 | S-07 higiene repo (description/topics/homepage) + S-01 1er post publicado (EN+ES) | `c8e28c6`+ |
 
 > Detalle por sesión en [../worklog/](../worklog/). Decisiones en [../adr/index.md](../adr/index.md).
