@@ -5,12 +5,24 @@
 > **Owner:** tú (single operator). **Cadencia:** actualizar al inicio Y al cierre
 > de cada sesión que toque el sitio.
 >
-> **Última actualización:** 2026-06-16 (repo flipeado a **público** [build-in-public] +
-> **backlog completo poblado: 23 tareas S-01..S-23** en [RAID §I](RAID.md) +
-> [ROADMAP](ROADMAP.md)) — **el sitio está LIVE en `https://mizolutions.com`**
-> (Astro 5 estático en Vercel, bilingüe EN/ES, DNS Route53 → Vercel + SSL auto).
-> Repo `mizolutions/site` (**público**), `main` = `b7c9986`. **0 incidencias
-> bloqueantes; 23 tareas de pulido/crecimiento en backlog (3 hechas: S-07, S-01, S-02).**
+> **Última actualización:** 2026-06-16 (**cierre de sesión**) — **el sitio está
+> LIVE en `https://mizolutions.com`** (Astro 5 estático en Vercel, bilingüe EN/ES,
+> DNS Route53 → Vercel + SSL auto). Repo `mizolutions/site` (**público**),
+> `main` = `f1cec08`, árbol limpio, build verde (7 páginas). **0 incidencias
+> bloqueantes; backlog 23 tareas (3 hechas: S-07, S-01, S-02; S-20 email en curso).**
+>
+> **🟢 Sesión 2026-06-16 (cierre) — repo público + 1er post + identidades.** Tras
+> el bootstrap (abajo): (1) repo flipeado a **público** (build-in-public) +
+> backlog completo poblado (S-01..S-23) en RAID + ROADMAP. (2) **S-07** higiene del
+> repo: description + 13 topics + homepage→`mizolutions.com` (era el preview de
+> Vercel). (3) **S-01** publicado el 1er post del blog _logs→observabilidad_ (EN+ES,
+> 7 páginas). (4) **S-02** footer honesto: verificado que `github.com/mizolutions`
+> **sí existe** (org del repo) → footer = GitHub+email; X/LinkedIn **no existen aún**,
+> comentados en `consts.ts` (cero links muertos). (5) Email: dirección elegida
+> **`ping@mizolutions.com`** (sitio ya apunta ahí, EN/ES); proveedor = **Zoho Mail
+> Free** (S-20 en curso, **bloquea el CTA primario** — falta signup del operador +
+> cablear MX/SPF/DKIM en Route53). Tareas de identidad creadas: S-20 email, S-21
+> LinkedIn, S-22 X, S-23 perfil del GitHub org. 5 commits: `4ab1a30`→`f1cec08`.
 >
 > **🟢 Sesión 2026-06-16 (bootstrap) — landing live + torre de control.** (1)
 > Scaffolding Astro 5 estático (dark, bilingüe, tokens CSS a mano, cero JS),
@@ -80,5 +92,6 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 | 2026-06-16 | Repo → público; backlog completo (S-01..S-19) poblado en RAID + ROADMAP | `fe6925e` |
 | 2026-06-16 | S-07 higiene repo (description/topics/homepage) + S-01 1er post publicado (EN+ES) | `c8e28c6`+ |
 | 2026-06-16 | S-02 footer honesto (GitHub+email; X/LinkedIn no existen aún) + tareas de identidad S-20..S-23 | `b7c9986`+ |
+| 2026-06-16 | Email del sitio → `ping@mizolutions.com` (Zoho Free planeado, S-20 en curso) · **cierre de sesión** | `f1cec08` |
 
 > Detalle por sesión en [../worklog/](../worklog/). Decisiones en [../adr/index.md](../adr/index.md).
