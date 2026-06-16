@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { ui, localizeUrl } from '../../i18n/ui';
+
+const lang = 'en' as const;
+const t = ui[lang].blog;
+
+const posts = (
+  await getCollection(
+    'blog',
+    ({ data }) => data.lang === lang && (import.meta.env.PROD ? data.draft !== true : true)
+  )
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const fmt = new Intl.DateTimeFormat(lang, { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<Base lang={lang} title={`${t.title} — Mizolutions`} description={t.subtitle}>
+  <section class="blog container">
+    <p class="kicker">log</p>
+    <h1>{t.title}</h1>
+    <p class="lead">{t.subtitle}</p>
+
+    {
+      posts.length === 0 ? (
+        <p class="blog__empty muted">{t.empty}</p>
+      ) : (
+        <ul class="postlist">
+          {posts.map((p) => (
+            <li class="postlist__item">
+              <a href={localizeUrl(`/blog/${p.id}`, lang)}>
+                <time datetime={p.data.pubDate.toISOString()} class="postlist__date">
+                  {fmt.format(p.data.pubDate)}
+                </time>
+                <h2 class="postlist__title">{p.data.title}</h2>
+                <p class="muted">{p.data.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</Base>
+
+<style>
+  .blog {
+    padding-block: clamp(3rem, 2rem + 5vw, 6rem);
+  }
+  .blog h1 {
+    margin-block: 0.6rem 1rem;
+  }
+  .blog__empty {
+    margin-top: 2.5rem;
+    font-family: var(--font-mono);
+  }
+  .postlist {
+    margin-top: clamp(2rem, 1rem + 3vw, 3.5rem);
+    display: grid;
+    gap: 0.5rem;
+  }
+  .postlist__item a {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .postlist__item a:hover {
+    text-decoration: none;
+  }
+  .postlist__item:last-child a {
+    border-bottom: 1px solid var(--border);
+  }
+  .postlist__date {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    color: var(--accent);
+  }
+  .postlist__title {
+    font-size: var(--step-2);
+    transition: color 0.15s ease;
+  }
+  .postlist__item a:hover .postlist__title {
+    color: var(--accent-bright);
+  }
+</style>

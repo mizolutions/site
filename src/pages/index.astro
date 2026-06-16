@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import CaseStudy from '../components/CaseStudy.astro';
+import Methodology from '../components/Methodology.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const lang = 'en' as const;
+---
+
+<Base lang={lang}>
+  <Hero lang={lang} />
+  <Services lang={lang} />
+  <CaseStudy lang={lang} />
+  <Methodology lang={lang} />
+  <Newsletter lang={lang} />
+</Base>

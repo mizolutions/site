@@ -1,0 +1,47 @@
+---
+import { SITE } from '../consts';
+import { ui, locales, localizeUrl, stripLocale, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+}
+
+const { lang, title, description } = Astro.props;
+const t = ui[lang];
+const pageTitle = title ?? t.meta.title;
+const pageDesc = description ?? t.meta.description;
+const route = stripLocale(Astro.url.pathname);
+const canonical = SITE.url + localizeUrl(route, lang);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{pageTitle}</title>
+<meta name="description" content={pageDesc} />
+<link rel="canonical" href={canonical} />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#0a0b0c" />
+
+{
+  locales.map((loc) => (
+    <link rel="alternate" hreflang={loc} href={SITE.url + localizeUrl(route, loc)} />
+  ))
+}
+<link rel="alternate" hreflang="x-default" href={SITE.url + localizeUrl(route, 'en')} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE.brand} />
+<meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDesc} />
+<meta property="og:url" content={canonical} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDesc} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="sitemap" href="/sitemap-index.xml" />

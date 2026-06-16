@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Mizolutions">
+  <rect width="32" height="32" rx="7" fill="#0a0b0c" />
+  <text x="6" y="23" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" font-weight="700" fill="#e8eaed">m</text>
+  <rect x="20" y="19" width="7" height="3" rx="1.5" fill="#34d399" />
+</svg>

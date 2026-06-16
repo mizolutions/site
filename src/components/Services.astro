@@ -1,0 +1,60 @@
+---
+import { ui, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang].services;
+---
+
+<section class="section services" id="services">
+  <div class="container">
+    <h2 class="services__heading">{t.heading}</h2>
+    <ul class="services__grid">
+      {
+        t.items.map((item, i) => (
+          <li class="card">
+            <span class="card__index">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="card__title">{item.title}</h3>
+            <p class="muted">{item.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .services__heading {
+    max-width: 20ch;
+    margin-bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  }
+  .services__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 1.5rem;
+    display: grid;
+    gap: 0.6rem;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+  .card__index {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--accent);
+  }
+  .card__title {
+    font-size: var(--step-1);
+  }
+</style>

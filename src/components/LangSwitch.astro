@@ -1,0 +1,51 @@
+---
+import { ui, locales, stripLocale, localizeUrl, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const route = stripLocale(Astro.url.pathname);
+---
+
+<div class="lang-switch" role="group" aria-label={ui[lang].a11y.langSwitch}>
+  {
+    locales.map((loc, i) => (
+      <>
+        {i > 0 && <span class="lang-switch__sep" aria-hidden="true">/</span>}
+        <a
+          href={localizeUrl(route, loc)}
+          class:list={['lang-switch__link', { 'is-active': loc === lang }]}
+          aria-current={loc === lang ? 'true' : undefined}
+          lang={loc}
+        >
+          {loc.toUpperCase()}
+        </a>
+      </>
+    ))
+  }
+</div>
+
+<style>
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+  }
+  .lang-switch__link {
+    color: var(--text-faint);
+  }
+  .lang-switch__link.is-active {
+    color: var(--accent);
+  }
+  .lang-switch__link:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .lang-switch__sep {
+    color: var(--border-strong);
+  }
+</style>

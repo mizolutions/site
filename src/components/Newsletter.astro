@@ -1,0 +1,94 @@
+---
+import { BUTTONDOWN_USERNAME } from '../consts';
+import { ui, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang].newsletter;
+const action = `https://buttondown.email/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`;
+---
+
+<section class="section newsletter" id="newsletter">
+  <div class="container newsletter__inner">
+    <div class="newsletter__copy">
+      <h2>{t.title}</h2>
+      <p class="lead">{t.body}</p>
+    </div>
+
+    <form class="newsletter__form" action={action} method="post" target="_blank">
+      <div class="newsletter__row">
+        <label class="sr-only" for="bd-email">Email</label>
+        <input
+          id="bd-email"
+          type="email"
+          name="email"
+          required
+          placeholder={t.placeholder}
+          autocomplete="email"
+          spellcheck="false"
+        />
+        <button class="btn btn--primary" type="submit">{t.button}</button>
+      </div>
+      <p class="newsletter__note muted">{t.note}</p>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter__inner {
+    display: grid;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+  }
+  .newsletter__copy h2 {
+    margin-bottom: 0.75rem;
+  }
+  .newsletter__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    max-width: 32rem;
+  }
+  .newsletter__form input {
+    flex: 1 1 14rem;
+    min-width: 0;
+    font: inherit;
+    font-size: var(--step--1);
+    color: var(--text);
+    background: var(--bg-elev);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+  }
+  .newsletter__form input::placeholder {
+    color: var(--text-faint);
+  }
+  .newsletter__form input:focus-visible {
+    border-color: var(--accent);
+    box-shadow: none;
+  }
+  .newsletter__note {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    margin-top: 0.7rem;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  @media (min-width: 860px) {
+    .newsletter__inner {
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+    }
+  }
+</style>

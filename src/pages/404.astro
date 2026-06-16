@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+
+const lang = 'en' as const;
+---
+
+<Base lang={lang} title="404 — Not found · Mizolutions">
+  <section class="container error">
+    <p class="kicker">error 404</p>
+    <h1>This page slipped the reconciliation.</h1>
+    <p class="lead">The URL you requested does not exist, or it has moved.</p>
+    <p class="error__cta">
+      <a class="btn btn--primary" href="/">← Back home</a>
+    </p>
+  </section>
+</Base>
+
+<style>
+  .error {
+    padding-block: clamp(5rem, 4rem + 8vw, 10rem);
+  }
+  .error h1 {
+    margin-block: 0.6rem 1rem;
+    max-width: 18ch;
+  }
+  .error__cta {
+    margin-top: 2rem;
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+import { CONTACT_HREF } from '../consts';
+import { ui, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang].hero;
+
+const stack = ['Cloud', 'ECS Fargate', 'CDK', 'TimescaleDB', 'Grafana', 'CloudWatch'];
+---
+
+<section class="hero">
+  <div class="container hero__inner">
+    <p class="kicker">{t.kicker}</p>
+    <h1 class="hero__title">{t.title}</h1>
+    <p class="lead hero__subtitle">{t.subtitle}</p>
+
+    <div class="hero__actions">
+      <a class="btn btn--primary" href={CONTACT_HREF}>{t.ctaPrimary}</a>
+      <a class="btn btn--ghost" href="#case">{t.ctaSecondary}</a>
+    </div>
+
+    <ul class="hero__stack" aria-label="Stack">
+      {stack.map((s) => <li>{s}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: clamp(4rem, 3rem + 8vw, 9rem) var(--section-y);
+  }
+  .hero__inner {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .hero__title {
+    max-width: 18ch;
+  }
+  .hero__subtitle {
+    max-width: 60ch;
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 0.5rem;
+  }
+  .hero__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    color: var(--text-faint);
+  }
+  .hero__stack li {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: 0.3rem 0.7rem;
+    background: var(--surface);
+  }
+</style>

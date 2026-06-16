@@ -1,0 +1,75 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { ui, localizeUrl } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const posts = await getCollection(
+    'blog',
+    ({ data }) => data.lang === 'es' && (import.meta.env.PROD ? data.draft !== true : true)
+  );
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const lang = 'es' as const;
+const t = ui[lang].blog;
+const fmt = new Intl.DateTimeFormat(lang, { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base lang={lang} title={`${post.data.title} — Mizolutions`} description={post.data.description}>
+  <article class="container post">
+    <a class="post__back" href={localizeUrl('/blog', lang)}>{t.backToList}</a>
+    <p class="kicker">{fmt.format(post.data.pubDate)}</p>
+    <h1>{post.data.title}</h1>
+    <p class="lead post__desc">{post.data.description}</p>
+    {
+      post.data.tags.length > 0 && (
+        <ul class="post__tags">
+          {post.data.tags.map((tag) => (
+            <li>#{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+    <div class="prose post__body">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .post {
+    padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  }
+  .post__back {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+  .post__back:hover {
+    color: var(--accent);
+  }
+  .post h1 {
+    margin-block: 0.6rem 1rem;
+    max-width: 22ch;
+  }
+  .post__desc {
+    max-width: var(--measure);
+  }
+  .post__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    color: var(--text-faint);
+  }
+  .post__body {
+    margin-top: clamp(2rem, 1rem + 3vw, 3rem);
+  }
+</style>
