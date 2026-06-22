@@ -7,7 +7,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = ui[lang].caseStudy;
-const blog = localizeUrl('/blog', lang);
+const caseUrl = localizeUrl('/trinitrade', lang);
 ---
 
 <section class="section case" id="case">
@@ -87,7 +87,7 @@ const blog = localizeUrl('/blog', lang);
     </ul>
 
     <p class="case__note eyebrow">{t.note}</p>
-    <a class="btn btn--ghost" href={blog}>{t.cta}</a>
+    <a class="btn btn--ghost" href={caseUrl}>{t.cta}</a>
   </div>
 </section>
 
