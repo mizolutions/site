@@ -5,11 +5,38 @@
 > **Owner:** tú (single operator). **Cadencia:** actualizar al inicio Y al cierre
 > de cada sesión que toque el sitio.
 >
-> **Última actualización:** 2026-06-16 (**cierre de sesión**) — **el sitio está
-> LIVE en `https://mizolutions.com`** (Astro 5 estático en Vercel, bilingüe EN/ES,
-> DNS Route53 → Vercel + SSL auto). Repo `mizolutions/site` (**público**),
-> `main` = `f1cec08`, árbol limpio, build verde (7 páginas). **0 incidencias
-> bloqueantes; backlog 23 tareas (3 hechas: S-07, S-01, S-02; S-20 email en curso).**
+> **Última actualización:** 2026-06-23 (**sesión larga — portfolio Trinitrade + CV + SEO**). El sitio
+> sigue **LIVE en `https://mizolutions.com`** (Astro 5 estático en Vercel, bilingüe EN/ES). Repo
+> `mizolutions/site` (**público**), `main` = `6df0735`, build verde (~11 páginas), `astro check` 0/0/0.
+> Hitos de hoy: **(1)** caso de estudio **`/trinitrade` (EN+ES)** enriquecido — TOC, **8 diagramas de
+> arquitectura** (SVG dark vía Kroki), links al repo público por sección, home alineada al marco honesto;
+> **(2)** nueva **página de CV `/misael` (EN+ES)** con Trinitrade como proyecto destacado, sección
+> **Speaking** (3 conferencias 2024) y **botón Download PDF**; **(3)** **SEO**: JSON-LD
+> (Person/Organization/WebSite/TechArticle) + **Google Search Console verificado** (registro TXT en
+> Route53) + sitemap enviado (GSC procesando); **(4)** **newsletter (S-03)**: form arreglado
+> (endpoint `buttondown.email`→`.com` + CSP), cuenta Buttondown creada pero **en revisión** por Buttondown.
+> **0 incidencias bloqueantes.** Pendientes activos: S-20 email, S-04 OG image, S-05 analytics,
+> S-03 (espera aprobación Buttondown), GSC (procesando, retomar mañana).
+>
+> **🟢 Sesión 2026-06-23 — Trinitrade portfolio + CV `/misael` + SEO/JSON-LD + Search Console.**
+> Sesión 100% sitio (el proyecto trading-system quedó concluido y publicado como portfolio). **(1) `/trinitrade`
+> enriquecido:** índice navegable, 8 diagramas Mermaid renderizados a **SVG estáticos** (Kroki, JSON API
+> `theme=dark`, commiteados en `public/trinitrade/diagrams/` → el sitio no depende de nada externo en runtime),
+> "On GitHub" deep-links por sección al repo público `mizolutions/trinitrade`, y la home alineada al marco
+> honesto (fuera `< 30 bps`/`institutional-grade`, dentro `7/7 NO-GO`). **(2) Página de CV `/misael` + `/es/misael`:**
+> diseño a juego (dark/esmeralda), header con contacto (email + LinkedIn + sitio; **teléfono omitido por
+> privacidad**), **proyecto destacado Trinitrade**, summary, competencias, timeline de 6 roles, **Speaking**
+> (EXPROY 2024, EXPOTEL 2024, UPTEX 2024), educación, idiomas, **botón Download PDF** (`public/MisaelTenorio_DevOps_SRE.pdf`).
+> Arreglado el 404 de `/es/misael` (faltaba la página ES). **(3) SEO:** soporte `jsonLd` en `Base`/`BaseHead`;
+> `Person` en /misael, `ProfessionalService`+`WebSite` en la home, `TechArticle` en /trinitrade. **(4) Google
+> Search Console:** dominio **verificado** vía TXT `google-site-verification=...` añadido a la zona Route53
+> `Z062327723TCUEVA9TY8M` (cuenta PROD, vía `dc-aws` change-batch base64); sitemap `sitemap-index.xml` enviado
+> (GSC procesando — el 503 al fetch desde la red corporativa es el sinkhole de Palo Alto, no el sitio; deploy
+> Vercel `6df0735` = success). **(5) Newsletter S-03:** endpoint Buttondown legacy `.email` (302-redirect que
+> tira el POST) → `.com` + CSP `form-action` actualizada; cuenta `mizolutions` creada pero **en revisión** por
+> Buttondown (el form devuelve su página de error de cuenta-no-aprobada, no un fallo del sitio). Expectativa SEO
+> honesta fijada: rankeable marca/long-tail (misael tenorio, mizolutions, trinitrade), NO términos head genéricos.
+> ~9 commits (`255eac5`→`6df0735`).
 >
 > **🟢 Sesión 2026-06-16 (cierre) — repo público + 1er post + identidades.** Tras
 > el bootstrap (abajo): (1) repo flipeado a **público** (build-in-public) +
@@ -42,10 +69,10 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | # | Dominio | Estado | KPI primario | Valor actual | Owner |
 |---|---|---|---|---|---|
-| 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`fe6925e`, Astro 5 estático, `npm run build` verde (5 páginas + sitemap), `astro check` 0/0/0 | tú |
-| 2 | **Content / Blog** | 🟡 | # posts publicados · copy fresco | Landing EN+ES completa. **1 post publicado** (logs→observabilidad, S-01 ✅). Footer honesto: GitHub+email reales (S-02 ✅); **email aún no funciona** (S-20). 404 solo EN (S-06) | tú |
-| 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
-| 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · analytics · newsletter | SEO base OK (canonical+hreflang+OG+sitemap+robots). **Pendiente:** OG image (S-04), Analytics OFF (S-05), newsletter sin username real (S-03), CTA→mailto (S-12) | tú |
+| 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`6df0735`, Astro 5 estático, `npm run build` verde (~11 páginas + sitemap), `astro check` 0/0/0 | tú |
+| 2 | **Content / Blog** | 🟢 | # páginas · copy fresco | Landing EN+ES + 1 post (S-01). **NUEVO 2026-06-23:** caso de estudio **`/trinitrade` (EN+ES)** enriquecido (TOC + 8 diagramas SVG + repo deep-links) + **CV `/misael` (EN+ES)** (proyecto destacado, Speaking, Download PDF). Footer honesto (S-02 ✅). **email aún no funciona** (S-20). 404 solo EN (S-06) | tú |
+| 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. **NUEVO:** TXT `google-site-verification` añadido para Search Console. `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
+| 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · structured data · analytics | SEO base OK (canonical+hreflang+OG+sitemap+robots). **NUEVO 2026-06-23:** **JSON-LD** (Person/Organization/WebSite/TechArticle) + **Google Search Console verificado** + sitemap enviado (**procesando**, retomar mañana). **Pendiente:** OG image (S-04), Analytics OFF (S-05), **newsletter (S-03) cuenta Buttondown en revisión** | tú |
 | 5 | **Security / Deps** | 🟢 | headers · npm audit | CSP+HSTS+headers vía `vercel.json`. `npm audit`: 3 highs **aceptados** (no aplican a build estático). **Repo público** → account-id/zone-id en docs (R-07, decisión S-11) | tú |
 | 6 | **Governance / Repo** | 🟢 | description · topics · backlog | ✅ description + 13 topics + homepage→`mizolutions.com` (S-07 hecho). LICENSE a decidir (S-13). Backlog 23 tareas trackeadas (3 hechas) | tú |
 
@@ -59,13 +86,15 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 > Ordenado por impacto × oportunidad. Backlog completo (S-01..S-23) en
 > [RAID §I](RAID.md) + [ROADMAP](ROADMAP.md).
 
-1. **⚠️ Email `hello@mizolutions.com` funcional (S-20)** — **bloquea el CTA primario**
-   ("Book a reliability review" abre un `mailto:` que hoy rebota: 0 MX en la zona).
-   Cablear forwarding (MX+TXT) en Route53 tras elegir proveedor. Dominio: Infra/Growth.
-2. **Crear identidades sociales (S-21 LinkedIn + S-22 X)** — signup humano; reservar
-   el handle `mizolutions`. Al existir, descomentar en `consts.ts`. Dominio: Growth.
-3. **Decisiones pendientes (S-11 account-id · S-08 Hobby→Pro)** — redacción de
-   account-id/zone-id en docs públicos (R-07) + plan de hosting. Dominio: Gov/Infra.
+1. **▶️ Search Console (retomar mañana)** — el dominio está **verificado** y el sitemap `sitemap-index.xml`
+   **enviado**; GSC lo está **procesando** (estado "no válido/procesando" es normal en propiedad nueva, se
+   resuelve solo). Mañana: confirmar sitemap en "Correcto" + **Inspección de URL** → Solicitar indexación de
+   `/`, `/misael`, `/trinitrade`. Dominio: SEO.
+2. **⚠️ Email `ping@mizolutions.com` funcional (S-20)** — **bloquea el CTA primario** (el `mailto:` rebota:
+   0 MX en la zona). Cablear forwarding (MX+TXT) en Route53 tras elegir proveedor (Zoho Free planeado). Dominio: Infra/Growth.
+3. **Newsletter (S-03) — esperar aprobación de Buttondown** + **OG image (S-04)** + **identidades sociales
+   (S-21 LinkedIn / S-22 X)**: la cuenta Buttondown `mizolutions` está **en revisión** (el form ya está correcto);
+   falta la imagen OG para previews al compartir; reservar handles sociales (signup humano). Dominio: Growth.
 
 ---
 
@@ -73,13 +102,15 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | Hecho | Valor |
 |---|---|
-| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `fe6925e` |
+| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `6df0735` |
 | Local | `/home/dc-user/workspace/mizolutions-site` (sibling del trading-system, **fuera** del workspace VS Code) |
 | Stack | Astro 5 estático, TypeScript, CSS tokens a mano, i18n EN/ES |
 | Hosting | Vercel (plan **Hobby** — ⚠️ uso comercial pide **Pro** por ToS) |
 | Dominio | `mizolutions.com` → `A 216.198.79.1` (Vercel), zona Route53 `Z062327723TCUEVA9TY8M` en cuenta PROD trading `520999258244` |
 | Dominio técnico | `miz0.com` = backend/dashboards (Route53/CDK del trading-system) — **NO se toca desde aquí** |
-| Build | `npm run build` (5 páginas + sitemap), `npm run dev` (preview), `npx astro check` (tipos) |
+| Páginas | home, blog (+1 post), **`/misael` (CV)**, **`/trinitrade` (caso de estudio)** — todas EN+ES (~11 rutas en el sitemap) |
+| SEO | robots + sitemap + canonical + hreflang + OG + **JSON-LD** (Person/Org/WebSite/TechArticle); Google Search Console verificado (TXT) |
+| Build | `npm run build` (+ sitemap), `npm run dev` (preview), `npx astro check` (tipos) |
 | Deploy | push a `main` → deploy de producción automático en Vercel |
 
 ---
@@ -88,6 +119,7 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | Fecha | Resumen | `main` |
 |---|---|---|
+| 2026-06-23 | **Portfolio Trinitrade** (`/trinitrade` TOC + 8 diagramas SVG + repo links) + **CV `/misael` EN+ES** (Speaking + Download PDF) + **SEO JSON-LD** + **Search Console verificado** + newsletter endpoint fix (S-03 en revisión) | `6df0735` |
 | 2026-06-16 | Bootstrap: landing Astro 5 live + DNS Route53→Vercel + torre de control | `931bd55` |
 | 2026-06-16 | Repo → público; backlog completo (S-01..S-19) poblado en RAID + ROADMAP | `fe6925e` |
 | 2026-06-16 | S-07 higiene repo (description/topics/homepage) + S-01 1er post publicado (EN+ES) | `c8e28c6`+ |
