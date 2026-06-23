@@ -129,6 +129,36 @@ const experience = [
     ],
   },
 ];
+
+const talks = [
+  {
+    date: 'Jul 2024',
+    location: 'Nezahualcóyotl, MX',
+    title: 'Estrategias de Infraestructura en la Nube: Retos y Soluciones en DevOps',
+    gloss: 'Cloud Infrastructure Strategies: Challenges & Solutions in DevOps',
+    event: 'EXPROY 2024 — 30th anniversary',
+    org: 'Universidad Tecnológica de Nezahualcóyotl (UTN)',
+    role: 'Invited speaker',
+  },
+  {
+    date: '2024',
+    location: 'Nezahualcóyotl, MX',
+    title: 'Estrategias de Infraestructura en la Nube',
+    gloss: 'Cloud Infrastructure Strategies',
+    event: 'EXPOTEL 2024',
+    org: 'Universidad Tecnológica de Nezahualcóyotl (UTN)',
+    role: 'Guest lecture',
+  },
+  {
+    date: 'Nov 2024',
+    location: 'Texcoco de Mora, MX',
+    title: 'Estrategias de Infraestructura en la Nube: Retos y Soluciones en DevOps',
+    gloss: 'Cloud Infrastructure Strategies: Challenges & Solutions in DevOps',
+    event: 'Guest lecture for the student community',
+    org: 'Universidad Politécnica de Texcoco (UPTEX)',
+    role: 'Invited speaker',
+  },
+];
 ---
 
 <Base lang={lang} title={title} description={description}>
@@ -218,6 +248,35 @@ const experience = [
                   {job.bullets.map((b) => (
                     <li>{b}</li>
                   ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- Speaking -->
+    <section class="cv__section" aria-labelledby="speaking">
+      <h2 id="speaking" class="cv__h2">Speaking</h2>
+      <ol class="timeline">
+        {
+          talks.map((t) => (
+            <li class="job">
+              <div class="job__meta">
+                <p class="job__dates">{t.date}</p>
+                {t.location && <p class="job__loc">{t.location}</p>}
+              </div>
+              <div class="job__body">
+                <h3 class="job__role">“{t.title}”</h3>
+                <p class="job__company">
+                  {t.event}
+                  <span class="job__client"> · {t.org}</span>
+                </p>
+                <ul class="job__bullets">
+                  <li>
+                    {t.role} · <span class="muted">“{t.gloss}”</span>
+                  </li>
                 </ul>
               </div>
             </li>
