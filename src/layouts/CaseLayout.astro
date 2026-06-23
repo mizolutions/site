@@ -16,12 +16,32 @@ const { frontmatter } = Astro.props;
 const lang: Lang = frontmatter.lang ?? 'en';
 const home = localizeUrl('/', lang);
 const back = frontmatter.backLabel ?? (lang === 'es' ? '← Inicio' : '← Home');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  inLanguage: lang,
+  author: { '@type': 'Person', name: 'Misael Tenorio', url: 'https://mizolutions.com/misael' },
+  publisher: { '@type': 'Organization', name: 'Mizolutions', url: 'https://mizolutions.com' },
+  about: [
+    'Site Reliability Engineering',
+    'DevOps',
+    'AWS',
+    'Algorithmic trading systems',
+    'Quantitative research',
+    'Observability',
+    'Infrastructure as Code',
+  ],
+};
 ---
 
 <Base
   lang={lang}
   title={`${frontmatter.title} — Mizolutions`}
   description={frontmatter.description}
+  jsonLd={jsonLd}
 >
   <article class="container case-doc">
     <a class="case-doc__back" href={home}>{back}</a>

@@ -159,9 +159,44 @@ const talks = [
     role: 'Invited speaker',
   },
 ];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Misael Tenorio',
+  alternateName: 'Misael Tenorio Castro',
+  jobTitle: 'Senior DevOps & Site Reliability Engineer',
+  description,
+  url: 'https://mizolutions.com/misael',
+  sameAs: [
+    'https://www.linkedin.com/in/misaeltenorio',
+    'https://github.com/mizolutions',
+    'https://mizolutions.com',
+  ],
+  worksFor: { '@type': 'Organization', name: 'Tech Mahindra' },
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Universidad Tecnológica de Nezahualcóyotl',
+  },
+  knowsLanguage: ['English', 'Spanish'],
+  knowsAbout: [
+    'Site Reliability Engineering',
+    'DevOps',
+    'AWS',
+    'Azure',
+    'Kubernetes',
+    'Terraform',
+    'Infrastructure as Code',
+    'CI/CD',
+    'Observability',
+    'FinOps',
+    'Algorithmic trading systems',
+    'Quantitative research',
+  ],
+};
 ---
 
-<Base lang={lang} title={title} description={description}>
+<Base lang={lang} title={title} description={description} jsonLd={jsonLd}>
   <article class="cv container">
     <!-- Header -->
     <header class="cv__head">

@@ -10,15 +10,16 @@ interface Props {
   lang: Lang;
   title?: string;
   description?: string;
+  jsonLd?: unknown;
 }
 
-const { lang, title, description } = Astro.props;
+const { lang, title, description, jsonLd } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead lang={lang} title={title} description={description} />
+    <BaseHead lang={lang} title={title} description={description} jsonLd={jsonLd} />
   </head>
   <body>
     <a class="skip-link" href="#main">{ui[lang].a11y.skip}</a>

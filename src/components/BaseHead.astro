@@ -6,9 +6,10 @@ interface Props {
   lang: Lang;
   title?: string;
   description?: string;
+  jsonLd?: unknown;
 }
 
-const { lang, title, description } = Astro.props;
+const { lang, title, description, jsonLd } = Astro.props;
 const t = ui[lang];
 const pageTitle = title ?? t.meta.title;
 const pageDesc = description ?? t.meta.description;
@@ -45,3 +46,5 @@ const canonical = SITE.url + localizeUrl(route, lang);
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+{jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}

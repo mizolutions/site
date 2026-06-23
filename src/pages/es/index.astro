@@ -7,9 +7,44 @@ import Methodology from '../../components/Methodology.astro';
 import Newsletter from '../../components/Newsletter.astro';
 
 const lang = 'es' as const;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://mizolutions.com/#org',
+      name: 'Mizolutions',
+      url: 'https://mizolutions.com',
+      description:
+        'Ingeniería de confiabilidad para sistemas cloud críticos: arquitectura tolerante a fallos, observabilidad (SRE) e Infraestructura como Código.',
+      founder: { '@type': 'Person', name: 'Misael Tenorio', url: 'https://mizolutions.com/misael' },
+      sameAs: ['https://github.com/mizolutions'],
+      areaServed: 'Worldwide',
+      knowsAbout: [
+        'Site Reliability Engineering',
+        'DevOps',
+        'AWS',
+        'Azure',
+        'Kubernetes',
+        'Observability',
+        'FinOps',
+        'Infrastructure as Code',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://mizolutions.com/#website',
+      name: 'Mizolutions',
+      url: 'https://mizolutions.com',
+      publisher: { '@id': 'https://mizolutions.com/#org' },
+      inLanguage: ['en', 'es'],
+    },
+  ],
+};
 ---
 
-<Base lang={lang}>
+<Base lang={lang} jsonLd={jsonLd}>
   <Hero lang={lang} />
   <Services lang={lang} />
   <CaseStudy lang={lang} />
