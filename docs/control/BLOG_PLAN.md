@@ -84,7 +84,7 @@
 ### Cluster E — The honest quant-research saga ⭐ (signature series)
 | ID | Working title (EN) | Hook / angle | Source | Status |
 |---|---|---|---|---|
-| E1 | I tried to find a trading edge and failed 7 times — and that's the point | overview/capstone of the program | ADR-026/027; case study §6 | idea |
+| E1 | I tried to find a trading edge and failed 7 times — and that's the point | overview/capstone of the program | ADR-026/027; case study §6 | **draft ✍️ (EN+ES, en review)** |
 | E2 | Pre-registration for backtests: how to not fool yourself | freeze the hypothesis in git before you run it | research-discipline notes; charter | idea |
 | E3 | Survivorship bias is sneakier than you think | the GO that became a NO-GO on point-in-time data | ADR-018/021 | idea |
 | E4 | The $0 control test: when a t=5.7 'edge' is just beta | market-neutral diagnostic kills a fragile signal | ADR-025/026 | idea |
