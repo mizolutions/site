@@ -1,0 +1,523 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const lang = 'es' as const;
+
+const title = 'Misael Tenorio — DevOps y SRE';
+const description =
+  'Ingeniero Senior DevOps y SRE con 17 años en TI (12 en SRE/DevOps). AWS y Azure, IaC, Kubernetes, observabilidad y FinOps. Creador de Trinitrade.';
+
+const contact = {
+  email: 'misael.tenorio@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/misaeltenorio',
+  linkedinLabel: 'linkedin.com/in/misaeltenorio',
+  site: 'https://mizolutions.com',
+  siteLabel: 'mizolutions.com',
+};
+
+const competencies = [
+  {
+    label: 'Plataformas Cloud',
+    items:
+      'Azure (App Service, Application Gateway, WAF, APIM, Cosmos DB, Key Vault) · AWS (Lambda, EKS, ECS, RDS, S3, VPC, Transit Gateway)',
+  },
+  {
+    label: 'Infraestructura como Código',
+    items: 'Terraform · ARM Templates · CloudFormation · CDK · Terragrunt · Ansible · Packer',
+  },
+  {
+    label: 'Contenedores y Orquestación',
+    items: 'Kubernetes (AKS / EKS) · OpenShift · Docker · Docker Swarm · Fargate',
+  },
+  {
+    label: 'CI/CD y DevSecOps',
+    items: 'Azure Pipelines (YAML) · GitHub Actions · Jenkins · Bamboo · SonarQube (Quality Gates) · JFrog Artifactory',
+  },
+  {
+    label: 'Observabilidad y Monitoreo',
+    items: 'Datadog (APM y Security) · Azure Monitor · AWS CloudWatch · Grafana · New Relic · PagerDuty',
+  },
+  {
+    label: 'FinOps',
+    items: 'Gestión financiera cloud · Rightsizing · Azure Reservations · Higiene de entornos',
+  },
+  {
+    label: 'Ingeniería asistida por IA',
+    items: 'GitHub Copilot · Claude Opus (acelerando la lógica de infraestructura y el rendimiento del código)',
+  },
+  {
+    label: 'Lenguajes y Herramientas',
+    items: 'Python · Bash · Java · Git · Administración de Jira (Scrum / Kanban / ITSM) · Confluence',
+  },
+];
+
+const experience = [
+  {
+    company: 'Tech Mahindra',
+    client: 'Cliente: EY — Ernst & Young',
+    role: 'Senior DevOps / Cloud Engineer',
+    dates: 'Oct 2025 – Presente',
+    location: 'Remoto',
+    bullets: [
+      'Lideré la migración de Azure Repos a GitHub Actions, optimizando el rendimiento y la fiabilidad de los pipelines.',
+      'Desarrollé y mantuve pipelines de IaC para la creación automatizada de WAF, Application Gateways y cuentas de Storage.',
+      'Gestioné despliegues de aplicaciones en AKS, asegurando uso óptimo de recursos y escalabilidad.',
+      'Diseñé pipelines complejos en Azure YAML con Quality Gates (SonarQube) para imponer estándares de código y seguridad.',
+      'Integré GitHub Copilot y Claude Opus para acelerar la lógica de infraestructura y manejar la complejidad del proyecto.',
+      'Gestioné registros de aplicaciones en Azure Active Directory (AAD) para interacciones de servicio seguras.',
+    ],
+  },
+  {
+    company: 'Microsoft',
+    client: 'vía Ascendion',
+    role: 'Cloud Engineer — Azure',
+    dates: 'Abr 2024 – Oct 2025',
+    location: 'Remoto',
+    bullets: [
+      'Administré infraestructura en Azure — VMs, redes y almacenamiento — con Azure Resource Manager y CLI.',
+      'Implementé infraestructura cloud con Terraform, asegurando despliegues consistentes en múltiples suscripciones de Azure.',
+      'Optimicé el monitoreo con Azure Monitor para detectar y resolver incidencias de infraestructura, garantizando alta disponibilidad.',
+      'Gestioné identidad y acceso en Azure AD, aplicando buenas prácticas de IAM.',
+      'Desarrollé herramientas de automatización en PowerShell y Python para mejorar la eficiencia administrativa.',
+    ],
+  },
+  {
+    company: 'Clip (Payclip)',
+    client: null,
+    role: 'Senior DevOps / Cloud Engineer',
+    dates: 'Dic 2017 – Abr 2024',
+    location: 'México / Remoto',
+    bullets: [
+      'Liderazgo SRE: gestioné un equipo de SREs, definiendo SLOs/SLIs y liderando la gestión de incidentes para asegurar la fiabilidad.',
+      'Lideré la orquestación de todas las cargas en Amazon EKS, soportando millones de transacciones diarias con escalado fluido.',
+      'FinOps: implementé medidas de ahorro incluyendo Azure Reservations y optimización de recursos en AWS.',
+      'Instalé y administré Jira Software y Confluence en AWS/Azure, automatizando flujos ITSM y documentación.',
+      'Desarrollé arquitecturas orientadas a eventos y aplicaciones serverless con AWS Lambda, Python y Bash.',
+    ],
+  },
+  {
+    company: 'Globant',
+    client: 'Cliente: Fandango',
+    role: 'Senior DevOps Engineer',
+    dates: 'Mar 2017 – Nov 2017',
+    location: 'Remoto',
+    bullets: [
+      'Gestioné el CI/CD de aplicaciones web de alto tráfico con Docker, Docker Swarm y Jenkins.',
+      'Diseñé procesos de gestión de configuración de infraestructura con Chef, en colaboración con los equipos de desarrollo.',
+    ],
+  },
+  {
+    company: 'EPAM Systems',
+    client: null,
+    role: 'DevOps Engineer',
+    dates: 'Dic 2015 – Feb 2017',
+    location: null,
+    bullets: [
+      'Automaticé tareas de build y despliegue con Bash y Jenkins en entornos Linux.',
+      'Optimicé los ciclos de vida de desarrollo refinando los procesos de build y pruebas junto a los desarrolladores.',
+    ],
+  },
+  {
+    company: 'Adquira (subsidiaria de BBVA)',
+    client: null,
+    role: 'Programador / Administrador de Sistemas Cloud',
+    dates: 'Ene 2009 – Abr 2015',
+    location: null,
+    bullets: [
+      'Administré servidores AIX/Unix e IBM WebSphere, implementando tuning de rendimiento y monitoreo.',
+      'Desarrollé aplicaciones bancarias robustas en Java (Spring, Hibernate) y automaticé tareas de conciliación bancaria.',
+    ],
+  },
+];
+
+const talks = [
+  {
+    date: 'Jul 2024',
+    location: 'Nezahualcóyotl, MX',
+    title: 'Estrategias de Infraestructura en la Nube: Retos y Soluciones en DevOps',
+    event: 'EXPROY 2024 — 30 aniversario',
+    org: 'Universidad Tecnológica de Nezahualcóyotl (UTN)',
+    role: 'Ponente invitado',
+  },
+  {
+    date: '2024',
+    location: 'Nezahualcóyotl, MX',
+    title: 'Estrategias de Infraestructura en la Nube',
+    event: 'EXPOTEL 2024',
+    org: 'Universidad Tecnológica de Nezahualcóyotl (UTN)',
+    role: 'Conferencia',
+  },
+  {
+    date: 'Nov 2024',
+    location: 'Texcoco de Mora, MX',
+    title: 'Estrategias de Infraestructura en la Nube: Retos y Soluciones en DevOps',
+    event: 'Conferencia para la comunidad estudiantil',
+    org: 'Universidad Politécnica de Texcoco (UPTEX)',
+    role: 'Ponente invitado',
+  },
+];
+---
+
+<Base lang={lang} title={title} description={description}>
+  <article class="cv container">
+    <!-- Header -->
+    <header class="cv__head">
+      <p class="kicker">Currículum</p>
+      <h1 class="cv__name">Misael Tenorio</h1>
+      <p class="cv__role">Ingeniero Senior DevOps y SRE</p>
+      <p class="lead cv__tagline">
+        17 años en TI — 12 de ellos en SRE y DevOps. Arquitecto entornos cloud de alta disponibilidad
+        en AWS y Azure, con foco en Infraestructura como Código, observabilidad y FinOps.
+      </p>
+      <ul class="cv__contact">
+        <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+        <li><a href={contact.linkedin} rel="noopener">{contact.linkedinLabel}</a></li>
+        <li><a href={contact.site} rel="noopener">{contact.siteLabel}</a></li>
+      </ul>
+    </header>
+
+    <!-- Featured project -->
+    <section class="cv__section" aria-labelledby="featured">
+      <h2 id="featured" class="cv__h2">Proyecto destacado</h2>
+      <a class="feature" href="/es/trinitrade">
+        <div class="feature__body">
+          <p class="feature__eyebrow">Trinitrade · único arquitecto, constructor y operador</p>
+          <p class="feature__title">
+            Una plataforma de trading algorítmico de grado producción, operada de extremo a extremo como
+            un problema de confiabilidad
+          </p>
+          <p class="feature__desc">
+            AWS · ECS Fargate · TimescaleDB · CDK (100% IaC) · CI/CD sin llaves vía OIDC · Grafana ·
+            alertas respaldadas por SLOs · una cadena de auditoría a prueba de manipulación — y un programa
+            de research pre-registrado que concluí con honestidad cuando las 7/7 familias de estrategia no
+            mostraron edge.
+          </p>
+        </div>
+        <span class="feature__cta" aria-hidden="true">Leer el caso de estudio →</span>
+      </a>
+    </section>
+
+    <!-- Summary -->
+    <section class="cv__section" aria-labelledby="summary">
+      <h2 id="summary" class="cv__h2">Resumen profesional</h2>
+      <p class="cv__prose">
+        Profesional senior de TI con 17 años de experiencia, especializado en Site Reliability Engineering
+        (SRE) y DevOps durante los últimos 12. Actualmente Senior DevOps y Cloud Engineer en Tech Mahindra
+        (para EY), donde lidero la automatización de infraestructura y las estrategias de CI/CD mientras
+        aprovecho el desarrollo asistido por IA (GitHub Copilot, Claude Opus) para manejar la complejidad.
+        Experto en arquitectura de entornos cloud de alta disponibilidad en AWS y Azure, con un fuerte
+        enfoque en FinOps, orquestación de contenedores (Kubernetes / OpenShift) y observabilidad avanzada.
+      </p>
+    </section>
+
+    <!-- Competencies -->
+    <section class="cv__section" aria-labelledby="skills">
+      <h2 id="skills" class="cv__h2">Competencias clave</h2>
+      <dl class="skills">
+        {
+          competencies.map((c) => (
+            <div class="skills__row">
+              <dt>{c.label}</dt>
+              <dd>{c.items}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <!-- Experience -->
+    <section class="cv__section" aria-labelledby="experience">
+      <h2 id="experience" class="cv__h2">Experiencia profesional</h2>
+      <ol class="timeline">
+        {
+          experience.map((job) => (
+            <li class="job">
+              <div class="job__meta">
+                <p class="job__dates">{job.dates}</p>
+                {job.location && <p class="job__loc">{job.location}</p>}
+              </div>
+              <div class="job__body">
+                <h3 class="job__role">{job.role}</h3>
+                <p class="job__company">
+                  {job.company}
+                  {job.client && <span class="job__client"> · {job.client}</span>}
+                </p>
+                <ul class="job__bullets">
+                  {job.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- Speaking -->
+    <section class="cv__section" aria-labelledby="speaking">
+      <h2 id="speaking" class="cv__h2">Conferencias</h2>
+      <ol class="timeline">
+        {
+          talks.map((t) => (
+            <li class="job">
+              <div class="job__meta">
+                <p class="job__dates">{t.date}</p>
+                {t.location && <p class="job__loc">{t.location}</p>}
+              </div>
+              <div class="job__body">
+                <h3 class="job__role">“{t.title}”</h3>
+                <p class="job__company">
+                  {t.event}
+                  <span class="job__client"> · {t.org}</span>
+                </p>
+                <ul class="job__bullets">
+                  <li>{t.role}</li>
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- Education + Languages -->
+    <section class="cv__section cv__grid" aria-labelledby="education">
+      <div>
+        <h2 id="education" class="cv__h2">Educación</h2>
+        <p class="cv__prose">
+          <strong>Licenciatura en Sistemas Computacionales</strong><br />
+          <span class="muted">Ingeniería en Sistemas / Sistemas de Información</span><br />
+          Universidad Tecnológica de Nezahualcóyotl (UTN) · 2005–2007
+        </p>
+      </div>
+      <div>
+        <h2 class="cv__h2">Idiomas</h2>
+        <ul class="langs">
+          <li><strong>Inglés</strong> — Competencia profesional</li>
+          <li><strong>Español</strong> — Nativo</li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="cv__foot muted">
+      Ingeniero detrás de <a href="/es">Mizolutions</a> · caso de estudio: <a href="/es/trinitrade">Trinitrade</a>
+    </p>
+  </article>
+</Base>
+
+<style>
+  .cv {
+    padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+    max-width: 60rem;
+  }
+
+  /* Header */
+  .cv__head {
+    padding-bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    border-bottom: 1px solid var(--border);
+  }
+  .cv__name {
+    margin-block: 0.4rem 0.3rem;
+    font-size: var(--step-4);
+    letter-spacing: -0.02em;
+  }
+  .cv__role {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: var(--step-0);
+  }
+  .cv__tagline {
+    margin-top: 1rem;
+    max-width: 60ch;
+  }
+  .cv__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.4rem;
+    margin-top: 1.4rem;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+  .cv__contact a {
+    color: var(--text-muted);
+  }
+  .cv__contact a:hover {
+    color: var(--accent);
+  }
+
+  /* Sections */
+  .cv__section {
+    margin-top: clamp(2rem, 1.4rem + 2vw, 3.2rem);
+  }
+  .cv__h2 {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 1.1rem;
+  }
+  .cv__prose {
+    max-width: 68ch;
+    color: var(--text);
+  }
+
+  /* Featured project */
+  .feature {
+    display: block;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 1.3rem 1.5rem;
+    transition:
+      border-color 0.15s ease,
+      background 0.15s ease;
+  }
+  .feature:hover {
+    text-decoration: none;
+    background: var(--surface-2);
+    border-color: var(--border-strong);
+    border-left-color: var(--accent-bright);
+  }
+  .feature__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .feature__title {
+    font-size: var(--step-1);
+    color: var(--text);
+    max-width: 46ch;
+  }
+  .feature__desc {
+    margin-top: 0.6rem;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+    max-width: 70ch;
+  }
+  .feature__cta {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--accent-bright);
+  }
+
+  /* Competencies */
+  .skills {
+    margin: 0;
+    display: grid;
+    gap: 0;
+  }
+  .skills__row {
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    gap: 0.4rem 1.5rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .skills__row:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .skills dt {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--accent);
+  }
+  .skills dd {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+  }
+
+  /* Experience timeline */
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .job {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 0.4rem 1.5rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .job:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .job__meta {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+  }
+  .job__dates {
+    color: var(--text);
+  }
+  .job__loc {
+    color: var(--text-faint);
+    margin-top: 0.2rem;
+  }
+  .job__role {
+    font-size: var(--step-0);
+    color: var(--text);
+  }
+  .job__company {
+    color: var(--accent);
+    font-size: var(--step--1);
+    margin-top: 0.15rem;
+  }
+  .job__client {
+    color: var(--text-muted);
+  }
+  .job__bullets {
+    margin: 0.8rem 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.35rem;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+  }
+
+  /* Education + languages grid */
+  .cv__grid {
+    display: grid;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+  }
+  .langs {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-muted);
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .cv__foot {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+  }
+
+  @media (min-width: 720px) {
+    .cv__grid {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .skills__row,
+    .job {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    .job__meta {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+</style>
