@@ -178,6 +178,9 @@ const talks = [
         <li><a href={contact.linkedin} rel="noopener">{contact.linkedinLabel}</a></li>
         <li><a href={contact.site} rel="noopener">{contact.siteLabel}</a></li>
       </ul>
+      <a class="btn btn--ghost cv__download" href="/MisaelTenorio_DevOps_SRE.pdf" download>
+        Download PDF ↓
+      </a>
     </header>
 
     <!-- Featured project -->
@@ -350,6 +353,10 @@ const talks = [
   }
   .cv__contact a:hover {
     color: var(--accent);
+  }
+  .cv__download {
+    display: inline-flex;
+    margin-top: 1.3rem;
   }
 
   /* Sections */
