@@ -8,7 +8,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = ui[lang].newsletter;
-const action = `https://buttondown.email/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`;
+const action = `https://buttondown.com/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`;
 ---
 
 <section class="section newsletter" id="newsletter">

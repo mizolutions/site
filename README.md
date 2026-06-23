@@ -170,7 +170,7 @@ root-relative, so this is the robust, footgun-free path). For
 ## Security
 
 [`vercel.json`](./vercel.json) sets HSTS, a strict CSP (self + inline styles that
-Astro requires; `form-action` allows `buttondown.email`), `X-Frame-Options:
+Astro requires; `form-action` allows `buttondown.com`), `X-Frame-Options:
 DENY`, `nosniff`, a tight `Referrer-Policy`, and `Permissions-Policy`. If you add
 a third-party embed, update the CSP `connect-src` / `form-action` accordingly.
 
