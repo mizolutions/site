@@ -1,0 +1,468 @@
+---
+import Base from '../layouts/Base.astro';
+
+const lang = 'en' as const;
+
+const title = 'Misael Tenorio — DevOps & SRE';
+const description =
+  'Senior DevOps & Site Reliability Engineer with 17 years in IT (12 in SRE/DevOps). AWS & Azure, IaC, Kubernetes, observability, and FinOps. Builder of Trinitrade.';
+
+const contact = {
+  email: 'misael.tenorio@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/misaeltenorio',
+  linkedinLabel: 'linkedin.com/in/misaeltenorio',
+  site: 'https://mizolutions.com',
+  siteLabel: 'mizolutions.com',
+};
+
+const competencies = [
+  {
+    label: 'Cloud Platforms',
+    items:
+      'Azure (App Service, Application Gateway, WAF, APIM, Cosmos DB, Key Vault) · AWS (Lambda, EKS, ECS, RDS, S3, VPC, Transit Gateway)',
+  },
+  {
+    label: 'Infrastructure as Code',
+    items: 'Terraform · ARM Templates · CloudFormation · CDK · Terragrunt · Ansible · Packer',
+  },
+  {
+    label: 'Containers & Orchestration',
+    items: 'Kubernetes (AKS / EKS) · OpenShift · Docker · Docker Swarm · Fargate',
+  },
+  {
+    label: 'CI/CD & DevSecOps',
+    items: 'Azure Pipelines (YAML) · GitHub Actions · Jenkins · Bamboo · SonarQube (Quality Gates) · JFrog Artifactory',
+  },
+  {
+    label: 'Observability & Monitoring',
+    items: 'Datadog (APM & Security) · Azure Monitor · AWS CloudWatch · Grafana · New Relic · PagerDuty',
+  },
+  {
+    label: 'FinOps',
+    items: 'Cloud Financial Management · Rightsizing · Azure Reservations · Environment Hygiene',
+  },
+  {
+    label: 'AI-assisted Engineering',
+    items: 'GitHub Copilot · Claude Opus (accelerating infrastructure logic and code performance)',
+  },
+  {
+    label: 'Languages & Tools',
+    items: 'Python · Bash · Java · Git · Jira Administration (Scrum / Kanban / ITSM) · Confluence',
+  },
+];
+
+const experience = [
+  {
+    company: 'Tech Mahindra',
+    client: 'Client: EY — Ernst & Young',
+    role: 'Senior DevOps / Cloud Engineer',
+    dates: 'Oct 2025 – Present',
+    location: 'Remote',
+    bullets: [
+      'Led the migration from Azure Repos to GitHub Actions, optimizing pipeline performance and reliability.',
+      'Developed and maintained IaC pipelines for the automated creation of WAF, Application Gateways, and Storage accounts.',
+      'Managed application deployments on AKS, ensuring optimal resource utilization and scalability.',
+      'Designed complex Azure YAML pipelines with Quality Gates (SonarQube) to enforce code standards and security.',
+      'Integrated GitHub Copilot and Claude Opus to accelerate infrastructure logic and navigate project complexity.',
+      'Managed application registrations in Azure Active Directory (AAD) for secure service interactions.',
+    ],
+  },
+  {
+    company: 'Microsoft',
+    client: 'via Ascendion',
+    role: 'Cloud Engineer — Azure',
+    dates: 'Apr 2024 – Oct 2025',
+    location: 'Remote',
+    bullets: [
+      'Administered Azure infrastructure — VMs, networking, and storage — using Azure Resource Manager and CLI.',
+      'Implemented cloud infrastructure with Terraform, ensuring consistent deployment across multiple Azure subscriptions.',
+      'Optimized monitoring with Azure Monitor to detect and resolve infrastructure issues, ensuring high availability.',
+      'Managed identity and access within Azure AD, enforcing IAM best practices.',
+      'Developed automation tools in PowerShell and Python to improve administrative efficiency.',
+    ],
+  },
+  {
+    company: 'Clip (Payclip)',
+    client: null,
+    role: 'Senior DevOps / Cloud Engineer',
+    dates: 'Dec 2017 – Apr 2024',
+    location: 'Mexico / Remote',
+    bullets: [
+      'SRE leadership: managed a team of SREs, defining SLOs/SLIs and leading incident management to ensure reliability.',
+      'Led orchestration of all workloads on Amazon EKS, supporting millions of daily transactions with seamless scaling.',
+      'FinOps: implemented cost-saving measures including Azure Reservations and AWS resource optimization.',
+      'Installed and managed Jira Software and Confluence on AWS/Azure, automating ITSM workflows and documentation.',
+      'Developed event-driven architectures and serverless applications using AWS Lambda, Python, and Bash.',
+    ],
+  },
+  {
+    company: 'Globant',
+    client: 'Client: Fandango',
+    role: 'Senior DevOps Engineer',
+    dates: 'Mar 2017 – Nov 2017',
+    location: 'Remote',
+    bullets: [
+      'Managed CI/CD for high-traffic web applications using Docker, Docker Swarm, and Jenkins.',
+      'Designed infrastructure configuration-management processes with Chef, partnering with development teams.',
+    ],
+  },
+  {
+    company: 'EPAM Systems',
+    client: null,
+    role: 'DevOps Engineer',
+    dates: 'Dec 2015 – Feb 2017',
+    location: null,
+    bullets: [
+      'Automated build and deployment tasks using Bash and Jenkins on Linux environments.',
+      'Optimized software development lifecycles by refining build and test processes with developers.',
+    ],
+  },
+  {
+    company: 'Adquira (BBVA subsidiary)',
+    client: null,
+    role: 'Programmer / Cloud System Administrator',
+    dates: 'Jan 2009 – Apr 2015',
+    location: null,
+    bullets: [
+      'Managed AIX/Unix servers and IBM WebSphere, implementing performance tuning and monitoring.',
+      'Developed robust banking applications in Java (Spring, Hibernate) and automated bank reconciliation tasks.',
+    ],
+  },
+];
+---
+
+<Base lang={lang} title={title} description={description}>
+  <article class="cv container">
+    <!-- Header -->
+    <header class="cv__head">
+      <p class="kicker">Curriculum vitae</p>
+      <h1 class="cv__name">Misael Tenorio</h1>
+      <p class="cv__role">Senior DevOps &amp; Site Reliability Engineer</p>
+      <p class="lead cv__tagline">
+        17 years in IT — 12 of them in SRE &amp; DevOps. I architect high-availability cloud
+        environments on AWS and Azure, with a focus on Infrastructure as Code, observability, and
+        FinOps.
+      </p>
+      <ul class="cv__contact">
+        <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+        <li><a href={contact.linkedin} rel="noopener">{contact.linkedinLabel}</a></li>
+        <li><a href={contact.site} rel="noopener">{contact.siteLabel}</a></li>
+      </ul>
+    </header>
+
+    <!-- Featured project -->
+    <section class="cv__section" aria-labelledby="featured">
+      <h2 id="featured" class="cv__h2">Featured project</h2>
+      <a class="feature" href="/trinitrade">
+        <div class="feature__body">
+          <p class="feature__eyebrow">Trinitrade · solo architect, builder &amp; operator</p>
+          <p class="feature__title">
+            A production-grade algorithmic-trading platform, run end-to-end as a reliability problem
+          </p>
+          <p class="feature__desc">
+            AWS · ECS Fargate · TimescaleDB · CDK (100% IaC) · keyless OIDC CI/CD · Grafana · SLO-backed
+            alerting · a tamper-evident audit hash-chain — and a pre-registered research program that I
+            concluded honestly when 7/7 strategy families showed no edge.
+          </p>
+        </div>
+        <span class="feature__cta" aria-hidden="true">Read the case study →</span>
+      </a>
+    </section>
+
+    <!-- Summary -->
+    <section class="cv__section" aria-labelledby="summary">
+      <h2 id="summary" class="cv__h2">Professional summary</h2>
+      <p class="cv__prose">
+        Senior IT professional with 17 years of industry experience, specializing in Site Reliability
+        Engineering (SRE) and DevOps for the last 12. Currently a Senior DevOps &amp; Cloud Engineer at
+        Tech Mahindra (for EY), where I lead infrastructure automation and CI/CD strategies while
+        leveraging AI-assisted development (GitHub Copilot, Claude Opus) to manage project complexity.
+        Expert in architecting high-availability cloud environments on AWS and Azure, with a strong
+        focus on FinOps, container orchestration (Kubernetes / OpenShift), and advanced observability.
+      </p>
+    </section>
+
+    <!-- Competencies -->
+    <section class="cv__section" aria-labelledby="skills">
+      <h2 id="skills" class="cv__h2">Core competencies</h2>
+      <dl class="skills">
+        {
+          competencies.map((c) => (
+            <div class="skills__row">
+              <dt>{c.label}</dt>
+              <dd>{c.items}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <!-- Experience -->
+    <section class="cv__section" aria-labelledby="experience">
+      <h2 id="experience" class="cv__h2">Professional experience</h2>
+      <ol class="timeline">
+        {
+          experience.map((job) => (
+            <li class="job">
+              <div class="job__meta">
+                <p class="job__dates">{job.dates}</p>
+                {job.location && <p class="job__loc">{job.location}</p>}
+              </div>
+              <div class="job__body">
+                <h3 class="job__role">{job.role}</h3>
+                <p class="job__company">
+                  {job.company}
+                  {job.client && <span class="job__client"> · {job.client}</span>}
+                </p>
+                <ul class="job__bullets">
+                  {job.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- Education + Languages -->
+    <section class="cv__section cv__grid" aria-labelledby="education">
+      <div>
+        <h2 id="education" class="cv__h2">Education</h2>
+        <p class="cv__prose">
+          <strong>BSc in Information Systems / Systems Engineering</strong><br />
+          <span class="muted">Licenciatura en Sistemas Computacionales</span><br />
+          Universidad Tecnológica de Nezahualcóyotl (UTN) · 2005–2007
+        </p>
+      </div>
+      <div>
+        <h2 class="cv__h2">Languages</h2>
+        <ul class="langs">
+          <li><strong>English</strong> — Professional proficiency</li>
+          <li><strong>Spanish</strong> — Native</li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="cv__foot muted">
+      Engineer behind <a href="/">Mizolutions</a> · case study: <a href="/trinitrade">Trinitrade</a>
+    </p>
+  </article>
+</Base>
+
+<style>
+  .cv {
+    padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+    max-width: 60rem;
+  }
+
+  /* Header */
+  .cv__head {
+    padding-bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    border-bottom: 1px solid var(--border);
+  }
+  .cv__name {
+    margin-block: 0.4rem 0.3rem;
+    font-size: var(--step-4);
+    letter-spacing: -0.02em;
+  }
+  .cv__role {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: var(--step-0);
+  }
+  .cv__tagline {
+    margin-top: 1rem;
+    max-width: 60ch;
+  }
+  .cv__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.4rem;
+    margin-top: 1.4rem;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+  .cv__contact a {
+    color: var(--text-muted);
+  }
+  .cv__contact a:hover {
+    color: var(--accent);
+  }
+
+  /* Sections */
+  .cv__section {
+    margin-top: clamp(2rem, 1.4rem + 2vw, 3.2rem);
+  }
+  .cv__h2 {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 1.1rem;
+  }
+  .cv__prose {
+    max-width: 68ch;
+    color: var(--text);
+  }
+
+  /* Featured project */
+  .feature {
+    display: block;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 1.3rem 1.5rem;
+    transition:
+      border-color 0.15s ease,
+      background 0.15s ease;
+  }
+  .feature:hover {
+    text-decoration: none;
+    background: var(--surface-2);
+    border-color: var(--border-strong);
+    border-left-color: var(--accent-bright);
+  }
+  .feature__eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .feature__title {
+    font-size: var(--step-1);
+    color: var(--text);
+    max-width: 46ch;
+  }
+  .feature__desc {
+    margin-top: 0.6rem;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+    max-width: 70ch;
+  }
+  .feature__cta {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--accent-bright);
+  }
+
+  /* Competencies */
+  .skills {
+    margin: 0;
+    display: grid;
+    gap: 0;
+  }
+  .skills__row {
+    display: grid;
+    grid-template-columns: 14rem 1fr;
+    gap: 0.4rem 1.5rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .skills__row:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .skills dt {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--accent);
+  }
+  .skills dd {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+  }
+
+  /* Experience timeline */
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .job {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 0.4rem 1.5rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .job:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .job__meta {
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+  }
+  .job__dates {
+    color: var(--text);
+  }
+  .job__loc {
+    color: var(--text-faint);
+    margin-top: 0.2rem;
+  }
+  .job__role {
+    font-size: var(--step-0);
+    color: var(--text);
+  }
+  .job__company {
+    color: var(--accent);
+    font-size: var(--step--1);
+    margin-top: 0.15rem;
+  }
+  .job__client {
+    color: var(--text-muted);
+  }
+  .job__bullets {
+    margin: 0.8rem 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.35rem;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+  }
+
+  /* Education + languages grid */
+  .cv__grid {
+    display: grid;
+    gap: clamp(1.5rem, 1rem + 3vw, 3rem);
+  }
+  .langs {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-muted);
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .cv__foot {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: var(--step--2);
+  }
+
+  @media (min-width: 720px) {
+    .cv__grid {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .skills__row,
+    .job {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    .job__meta {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+</style>
