@@ -99,7 +99,7 @@
 ### Cluster F — Engineering discipline / meta (Lead-level signals)
 | ID | Working title (EN) | Hook / angle | Source | Status |
 |---|---|---|---|---|
-| F1 | Architecture Decision Records for a team of one | lightweight ADRs that actually pay off | docs/adr | idea |
+| F1 | Architecture Decision Records for a team of one | lightweight ADRs that actually pay off | docs/adr | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | F2 | A 'Control Tower' for solo operators | governance without bureaucracy | control-tower docs | idea |
 | F3 | Testing pitfalls that only bite in CI | settings singletons, module-level locks, random-order flakes | asyncio-lock + singleton notes | idea |
 | F4 | Building (and concluding) a project in public, honestly | the whole arc, including the decision to stop | full project arc | idea |
