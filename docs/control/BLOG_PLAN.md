@@ -79,7 +79,7 @@
 | ID | Working title (EN) | Hook / angle | Source | Status |
 |---|---|---|---|---|
 | D1 | Why TimescaleDB hypertables for market data | vs DynamoDB, vs plain Postgres | ADR-002; DATABASE.md | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
-| D2 | Bad data silently produces confident-but-wrong results | the −50%/day integrity guard | integrity guard; research notes | idea |
+| D2 | Bad data silently produces confident-but-wrong results | the −50%/day integrity guard | integrity guard; research notes | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | D3 | Tamper-evident audit logs with a hash-chain | append-only still needs a lock (concurrency bug + fix) | AUDIT_TRAIL; audit worklog | idea |
 | D4 | Idempotent order submission without a distributed lock | single replica as a deliberate design choice | asyncio-lock notes; `submit_lock.py` | idea |
 | D5 | The SQLAlchemy enum bug that wasn't | Postgres enum case coercion, debunked | sqlalchemy-enum notes | idea |
