@@ -12,6 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **Weekly publish automation — Phase 0 (foundation).** RSS feeds (`/rss.xml`
+  EN, `/es/rss.xml` ES, and a bilingual `/newsletter.xml` that pairs each post's
+  EN+ES versions by `pubDate` for Buttondown RSS-to-email). Centralized publish
+  gate in `src/utils/posts.ts`: in prod a post is live only when `draft:false`
+  **and** `pubDate <= build time`, so a scheduled rebuild reveals queued posts.
+  GitHub Actions `weekly-publish.yml` (Monday cron → Vercel Deploy Hook, no-ops
+  until the `VERCEL_DEPLOY_HOOK` secret is set). Optional `socialEN` frontmatter
+  field for the future social automation. Dev (`npm run dev`) still shows all
+  drafts/future posts for preview.
 - **Governance layer (control tower).** Added `docs/control/` (CONTROL_TOWER,
   RAID, ROADMAP, NEXT_SESSION_PROMPT, README), `docs/adr/` (ADR-001..005 capturing
   decisions already made), `docs/worklog/`, and this CHANGELOG — mirroring the

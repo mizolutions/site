@@ -46,5 +46,11 @@ const canonical = SITE.url + localizeUrl(route, lang);
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Mizolutions — Blog"
+  href={SITE.url + (lang === 'es' ? '/es/rss.xml' : '/rss.xml')}
+/>
 
 {jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}

@@ -166,3 +166,33 @@ keeping a buffer of several `ready` posts ahead of the weekly cadence.
 - Optional: add an **Open Graph image** per post (S-04) for better link previews.
 - Optional: a **/blog** landing tweak to group by cluster/tag once volume grows.
 - Revisit keyword targets after Search Console starts returning impressions (see which long-tails actually land).
+
+## 8. Automation (POSSE: publish → email → social)
+
+> One event — "a post goes live" — drives everything, surfaced via RSS. Decided
+> 2026-06-24. Phase 0 shipped; phases 1–2 are blocked on external accounts.
+
+**How a post is published.** A post is live in prod when `draft: false` **and**
+its `pubDate` has arrived (`<= build time`). To queue next week's post: set
+`draft: false` + a future **Monday** `pubDate`. A scheduled rebuild reveals it.
+
+**Phase 0 — foundation (DONE).**
+- `src/utils/posts.ts` — `isPublished()` / `getPublishedPosts()` (draft + date gate; dev shows everything).
+- Feeds: `/rss.xml` (EN), `/es/rss.xml` (ES), `/newsletter.xml` (bilingual, pairs EN+ES by `pubDate`).
+- `.github/workflows/weekly-publish.yml` — Monday 13:00 UTC cron → Vercel Deploy Hook (`workflow_dispatch` for manual). No-ops until the secret is set.
+- `socialEN` frontmatter field — optional pre-written hook for the social leg.
+
+**Phase 1 — newsletter (blocked on Buttondown approval).** Enable Buttondown
+**RSS-to-email** add-on (+$9/mo) → point at `/newsletter.xml`, weekly Monday,
+auto-send → one bilingual email (EN top, ES below). Wire custom-domain sending
+(S-20: SPF/DKIM/DMARC in Route53) for deliverability.
+
+**Phase 2 — social (blocked on accounts).** Create LinkedIn Company Page + X
+`@mizolutions`. Connect a scheduler (Publer/Buffer). English-only posts; copy
+from each post's `socialEN`. Lands as a **draft** for one-tap approval before it
+goes out (brand rule: IA propone, humano dispone).
+
+**Operator setup (one-time):**
+1. Vercel → Settings → Git → Deploy Hooks (branch `main`) → copy URL → repo Secret `VERCEL_DEPLOY_HOOK`.
+2. (Phase 1) Buttondown approved → enable RSS-to-email add-on.
+3. (Phase 2) Create LinkedIn Page + X, pick scheduler, connect OAuth.

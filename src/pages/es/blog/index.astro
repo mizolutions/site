@@ -1,17 +1,12 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '../../../utils/posts';
 import { ui, localizeUrl } from '../../../i18n/ui';
 
 const lang = 'es' as const;
 const t = ui[lang].blog;
 
-const posts = (
-  await getCollection(
-    'blog',
-    ({ data }) => data.lang === lang && (import.meta.env.PROD ? data.draft !== true : true)
-  )
-).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = await getPublishedPosts(lang);
 
 const fmt = new Intl.DateTimeFormat(lang, { year: 'numeric', month: 'short', day: 'numeric' });
 ---

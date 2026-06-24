@@ -1,13 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getPublishedPosts } from '../../utils/posts';
 import { ui, localizeUrl } from '../../i18n/ui';
 
 export async function getStaticPaths() {
-  const posts = await getCollection(
-    'blog',
-    ({ data }) => data.lang === 'en' && (import.meta.env.PROD ? data.draft !== true : true)
-  );
+  const posts = await getPublishedPosts('en');
   return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 

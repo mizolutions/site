@@ -1,0 +1,49 @@
+name: Weekly publish (rebuild site)
+
+# Statically built sites don't "wake up" when a post's pubDate arrives — they
+# must be rebuilt. This job triggers a Vercel rebuild every Monday so any post
+# whose pubDate has passed (set draft:false + a future Monday date to queue one)
+# goes live automatically. Downstream, the site's RSS feeds drive the newsletter
+# (Buttondown RSS-to-email) and the social scheduler.
+#
+# Setup (one-time): create a Deploy Hook in Vercel
+#   Project → Settings → Git → Deploy Hooks (branch: main)
+# and store its URL as the repo secret VERCEL_DEPLOY_HOOK
+#   Repo → Settings → Secrets and variables → Actions → New repository secret.
+# Until that secret exists, the job no-ops (it won't spam failures).
+
+on:
+  schedule:
+    # 13:00 UTC every Monday (~08:00 ET / 07:00 CT). GitHub cron can drift a few
+    # minutes under load; that's fine for a weekly blog.
+    - cron: '0 13 * * 1'
+  workflow_dispatch: {} # allow manual "publish now" from the Actions tab
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weekly-publish
+  cancel-in-progress: false
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::VERCEL_DEPLOY_HOOK secret not set yet — skipping. Add it in repo Settings → Secrets to enable weekly auto-publish."
+            exit 0
+          fi
+          code=$(curl -sS -o /tmp/resp -w '%{http_code}' -X POST "$HOOK")
+          echo "Deploy hook responded HTTP $code"
+          cat /tmp/resp 2>/dev/null || true
+          echo
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "::error::Vercel deploy hook failed (HTTP $code). Site was NOT rebuilt."
+            exit 1
+          fi
+          echo "Rebuild triggered. Vercel emails on a failed build; this step only confirms the hook fired."

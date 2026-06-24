@@ -11,6 +11,12 @@ const blog = defineCollection({
     lang: z.enum(['en', 'es']),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    /**
+     * Optional pre-written hook used by the social automation (LinkedIn + X,
+     * English only). When present, the scheduler drafts this instead of an
+     * auto-generated title+description. See docs/control/BLOG_PLAN.md §automation.
+     */
+    socialEN: z.string().optional(),
   }),
 });
 
