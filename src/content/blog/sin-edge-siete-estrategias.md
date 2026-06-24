@@ -43,6 +43,11 @@ Así que antes de correr nada, hice las reglas más difíciles de hackear que mi
 
 Esta es la parte aburrida. También es el punto entero.
 
+<figure>
+  <img src="/blog/no-trading-edge-seven-strategies/funnel.svg" alt="Diagrama de la disciplina de research: pre-registrar la hipótesis en git, correr el backtest una vez, chequear criterios pre-fijados, aplicar controles de sesgo y concluir con una stop-rule" loading="lazy" />
+  <figcaption>La disciplina, como un embudo — pre-registrar, correr una vez, controlar sesgo y una stop-rule pre-comprometida.</figcaption>
+</figure>
+
 ## Las siete familias
 
 A lo largo de dos pistas de research probé siete familias de mecanismo. Aquí está el marcador:
@@ -63,6 +68,11 @@ base ajustada por riesgo. Esa distinción tumba a mucha gente. Una estrategia qu
 por detrás de un simple buy-and-hold a lo largo del ciclo no encontró un edge. Encontró una versión peor del
 efectivo.
 
+<figure>
+  <img src="/blog/no-trading-edge-seven-strategies/overlays.svg" alt="Diagrama que muestra cómo los overlays defensivos recortan el drawdown pero van por detrás del buy-and-hold en el ciclo, dando cero alpha out-of-sample" loading="lazy" />
+  <figcaption>Los overlays defensivos recortan el drawdown pero van por detrás del benchmark en el ciclo — reducir riesgo no es encontrar un edge.</figcaption>
+</figure>
+
 Dos de las siete merecen contarse como historias propias, porque son donde la disciplina realmente se ganó el
 sueldo.
 
@@ -80,6 +90,11 @@ en particular.
 Así que reconstruí el test sobre un universo **survivorship-free, point-in-time**: la membresía real del índice
 tal como era en cada fecha histórica, incluyendo los nombres que después salieron o fueron deslistados. Misma
 regla, universo honesto.
+
+<figure>
+  <img src="/blog/no-trading-edge-seven-strategies/survivorship.svg" alt="Diagrama que contrasta el universo del índice de hoy corrido hacia atrás (sesgado, sobre-incluye ganadores ex-post) con la membresía point-in-time (honesta, incluye deslistados)" loading="lazy" />
+  <figcaption>El sesgo de supervivencia en una imagen — un universo del índice de hoy favorece al momentum; uno point-in-time dice la verdad.</figcaption>
+</figure>
 
 El Sharpe se desplomó por debajo de SPY. El GO se volvió un **NO-GO** limpio. El "edge" había estado viviendo en
 unos pocos mega-ganadores ex-post que un universo ingenuo sobre-incluía. Quitar el sesgo quitó el alpha — que es
@@ -101,9 +116,15 @@ Todas las versiones hedgeadas salieron **negativas.** El drift de t = 5.7 era be
 alpha cosechable. La señal era real; el *edge* no. Un diagnóstico gratis sobre datos que ya tenía me salvó de
 pagar un feed de datos premium para perseguir un espejismo.
 
-> Este es el juego entero. Un t-stat alto te dice que un patrón es poco probable que sea aleatorio. No te dice
-> **nada** sobre si el patrón es *tuyo para cosechar* después de costes y cobertura. Confundir ambos es como la
-> gente segura y con credenciales pierde dinero.
+<figure>
+  <img src="/blog/no-trading-edge-seven-strategies/signal-vs-edge.svg" alt="Diagrama: una señal real de drift post-earnings con t igual a 5.7 falla un control de cobertura de beta de costo cero, revelando que era beta de mercado, no alpha cosechable" loading="lazy" />
+  <figcaption>El test de control de $0 — al cubrir la beta, un "edge" de t = 5.7 se desploma, exponiéndolo como exposición al mercado, no alpha.</figcaption>
+</figure>
+
+<aside class="callout callout--key">
+  <span class="callout__label">Idea clave</span>
+  <p>Este es el juego entero. Un t-stat alto te dice que un patrón es poco probable que sea aleatorio. No te dice <strong>nada</strong> sobre si el patrón es <em>tuyo para cosechar</em> después de costes y cobertura. Confundir ambos es como la gente segura y con credenciales pierde dinero.</p>
+</aside>
 
 ## Concluir es una característica, no un fracaso
 
@@ -130,6 +151,24 @@ producción. Para mí es el mismo músculo:
 
 Medir con honestidad y parar según la evidencia es la habilidad senior. La infraestructura fue la parte fácil. No
 engañarme a mí mismo fue la parte difícil — y es de la que estoy más orgulloso.
+
+## Referencias y para profundizar
+
+Los métodos y sesgos de arriba están bien estudiados. Algunos buenos puntos de partida:
+
+- [El problema de las comparaciones múltiples](https://es.wikipedia.org/wiki/Comparaciones_m%C3%BAltiples) — por qué "probé muchas cosas y una funcionó" no es evidencia.
+- [Sesgo de supervivencia](https://es.wikipedia.org/wiki/Sesgo_de_supervivencia) — y el caso a favor de los datos point-in-time.
+- [Pre-registro](https://en.wikipedia.org/wiki/Preregistration_(science)) — una defensa contra mover la portería después.
+- [Momentum en finanzas](https://en.wikipedia.org/wiki/Momentum_(finance)) — Jegadeesh & Titman (1993), el estudio transversal seminal.
+- [Post-earnings-announcement drift](https://en.wikipedia.org/wiki/Post%E2%80%93earnings-announcement_drift) — Bernard & Thomas (1989).
+- Moreira & Muir (2017), "Volatility-Managed Portfolios," *Journal of Finance* — el resultado canónico de vol-targeting.
+- [El ratio de Sharpe](https://es.wikipedia.org/wiki/Ratio_de_Sharpe) — la vara ajustada por riesgo usada en todo el análisis.
+
+De mi propio trabajo en **Trinitrade**:
+
+- El [caso de estudio completo de Trinitrade](/es/trinitrade) — arquitectura, observabilidad y el resultado del research en contexto.
+- El [repositorio público](https://github.com/mizolutions/trinitrade) sanitizado.
+- [Sobre mí](/es/misael) — el ingeniero detrás.
 
 ---
 

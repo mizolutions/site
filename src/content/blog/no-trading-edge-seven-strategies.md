@@ -39,6 +39,11 @@ So before I ran anything, I made the rules harder to game than my own optimism:
 
 This is the boring part. It is also the entire point.
 
+<figure>
+  <img src="/blog/no-trading-edge-seven-strategies/funnel.svg" alt="Flowchart of the research discipline: pre-register the hypothesis in git, run the backtest once, check pre-set criteria, apply bias controls, and conclude via a stop-rule" loading="lazy" />
+  <figcaption>The discipline, as a funnel — pre-register, run once, bias-control, and a pre-committed stop-rule.</figcaption>
+</figure>
+
 ## The seven families
 
 Across two research tracks, I tested seven mechanism families. Here's the scoreboard:
@@ -58,6 +63,11 @@ drawdown but produced **zero out-of-sample alpha**: cutting risk is not the same
 risk-adjusted basis. That distinction trips up a lot of people. A strategy that loses less in a crash but lags a
 simple buy-and-hold over the full cycle has not found an edge. It has found a worse version of cash.
 
+<figure>
+  <img src="/blog/no-trading-edge-seven-strategies/overlays.svg" alt="Diagram showing defensive overlays cut drawdown but lag buy-and-hold over the full cycle, netting zero out-of-sample alpha" loading="lazy" />
+  <figcaption>Defensive overlays cut drawdown but lag the benchmark over the cycle — reducing risk is not finding an edge.</figcaption>
+</figure>
+
 Two of the seven are worth telling as their own stories, because they're where the discipline actually earned
 its keep.
 
@@ -73,6 +83,11 @@ That's survivorship bias, and it flatters momentum specifically.
 
 So I rebuilt the test on a **survivorship-free, point-in-time** universe: the actual index membership as it was on
 each historical date, including the names that later got dropped or delisted. Same rule, honest universe.
+
+<figure>
+  <img src="/blog/no-trading-edge-seven-strategies/survivorship.svg" alt="Diagram contrasting a today's-index-run-backwards universe (biased, over-includes ex-post winners) with point-in-time membership (honest, includes delisted names)" loading="lazy" />
+  <figcaption>Survivorship bias in one picture — a today's-index universe flatters momentum; a point-in-time universe tells the truth.</figcaption>
+</figure>
 
 The Sharpe ratio collapsed below SPY. The GO became a clean **NO-GO**. The "edge" had been living in a few
 ex-post mega-winners that a naive universe over-included. Removing the bias removed the alpha — which is exactly
@@ -93,9 +108,15 @@ Every hedged version went **negative.** The t = 5.7 drift was market beta in dis
 signal was real; the *edge* was not. A free diagnostic on data I already had saved me from paying for a premium
 data feed to chase a mirage.
 
-> This is the whole game. A high t-stat tells you a pattern is unlikely to be random. It tells you **nothing**
-> about whether the pattern is *yours to harvest* after costs and hedging. Conflating the two is how confident,
-> credentialed people lose money.
+<figure>
+  <img src="/blog/no-trading-edge-seven-strategies/signal-vs-edge.svg" alt="Diagram: a real post-earnings drift signal with t equals 5.7 fails a zero-cost beta-hedge control, revealing it was market beta, not harvestable alpha" loading="lazy" />
+  <figcaption>The $0 control test — hedge out beta and a t = 5.7 'edge' collapses, exposing it as market exposure, not alpha.</figcaption>
+</figure>
+
+<aside class="callout callout--key">
+  <span class="callout__label">Key insight</span>
+  <p>This is the whole game. A high t-stat tells you a pattern is unlikely to be random. It tells you <strong>nothing</strong> about whether the pattern is <em>yours to harvest</em> after costs and hedging. Conflating the two is how confident, credentialed people lose money.</p>
+</aside>
 
 ## Concluding is a feature, not a failure
 
@@ -121,6 +142,24 @@ it's the same muscle:
 
 Measuring honestly and stopping on the evidence is the senior skill. The infrastructure was the easy part. Not
 fooling myself was the hard part — and it's the part I'm proudest of.
+
+## References & further reading
+
+The methods and biases above are well-studied. A few good starting points:
+
+- [The multiple comparisons problem](https://en.wikipedia.org/wiki/Multiple_comparisons_problem) — why "I tried many things and one worked" is not evidence.
+- [Survivorship bias](https://en.wikipedia.org/wiki/Survivorship_bias) — and the case for point-in-time data.
+- [Pre-registration](https://en.wikipedia.org/wiki/Preregistration_(science)) — a defense against moving the goalposts after the fact.
+- [Momentum in finance](https://en.wikipedia.org/wiki/Momentum_(finance)) — Jegadeesh & Titman (1993), the seminal cross-sectional study.
+- [Post-earnings-announcement drift](https://en.wikipedia.org/wiki/Post%E2%80%93earnings-announcement_drift) — Bernard & Thomas (1989).
+- Moreira & Muir (2017), "Volatility-Managed Portfolios," *Journal of Finance* — the canonical vol-targeting result.
+- [The Sharpe ratio](https://en.wikipedia.org/wiki/Sharpe_ratio) — the risk-adjusted yardstick used throughout.
+
+From my own work on **Trinitrade**:
+
+- The full [Trinitrade case study](/trinitrade) — architecture, observability, and the research result in context.
+- The sanitized [public repository](https://github.com/mizolutions/trinitrade).
+- [About me](/misael) — the engineer behind it.
 
 ---
 

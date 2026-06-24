@@ -30,6 +30,10 @@
   Fill `description` (155–160 chars, keyword-bearing) and 3–5 `tags`. Link internally to `/trinitrade` and 1–2 sibling posts.
 - **Files:** EN in `src/content/blog/<slug>.md`, ES in `src/content/blog/<slug>-es.md` (or `de-...` style already used).
   Frontmatter: `title, description, pubDate, lang, tags, draft`.
+- **Visuals & template:** every post follows [BLOG_POST_TEMPLATE.md](BLOG_POST_TEMPLATE.md) — the reusable skeleton +
+  visual blocks (diagrams, callouts, tables, references). Diagrams = Mermaid rendered to **static dark SVGs** via
+  `scripts/render-mermaid.sh` into `public/blog/<slug>/`; styled by `.prose` (figure/img/table/`.callout`) in
+  `global.css`. Density rule: as many diagrams as genuinely help + one key-insight callout per post.
 
 ## 3. Status legend
 
@@ -84,7 +88,7 @@
 ### Cluster E — The honest quant-research saga ⭐ (signature series)
 | ID | Working title (EN) | Hook / angle | Source | Status |
 |---|---|---|---|---|
-| E1 | I tried to find a trading edge and failed 7 times — and that's the point | overview/capstone of the program | ADR-026/027; case study §6 | **draft ✍️ (EN+ES, en review)** |
+| E1 | I tried to find a trading edge and failed 7 times — and that's the point | overview/capstone of the program | ADR-026/027; case study §6 | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | E2 | Pre-registration for backtests: how to not fool yourself | freeze the hypothesis in git before you run it | research-discipline notes; charter | idea |
 | E3 | Survivorship bias is sneakier than you think | the GO that became a NO-GO on point-in-time data | ADR-018/021 | idea |
 | E4 | The $0 control test: when a t=5.7 'edge' is just beta | market-neutral diagnostic kills a fragile signal | ADR-025/026 | idea |
