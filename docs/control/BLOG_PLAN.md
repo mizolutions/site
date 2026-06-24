@@ -73,7 +73,7 @@
 | C3 | CodeBuild runs in dash, not bash | the `${PIPESTATUS[0]}` bug that hid every result | codebuild-buildspec notes | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | C4 | Killing static AWS keys: keyless CI with GitHub OIDC | short-lived tokens, no secrets in CI | deploy workflow; security | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | C5 | Cascade debt: when one red pipeline hides eight layers | reactivating a long-red job surfaces debt one step at a time | ci-pipeline-cascade notes | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
-| C6 | AWS CLI & CloudFormation footguns | empty AWS_PROFILE, ASCII-only descriptions, file:// executor | aws-cli-and-cfn notes | idea |
+| C6 | AWS CLI & CloudFormation footguns | empty AWS_PROFILE, ASCII-only descriptions, file:// executor | aws-cli-and-cfn notes | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 
 ### Cluster D — Data & correctness
 | ID | Working title (EN) | Hook / angle | Source | Status |
