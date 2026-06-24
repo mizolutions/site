@@ -6,11 +6,22 @@
 > cada sesión. Fuente de verdad: [CONTROL_TOWER.md](CONTROL_TOWER.md) +
 > [RAID.md](RAID.md) + [ROADMAP.md](ROADMAP.md).
 >
-> **▶️ ESTADO (cierre 2026-06-16):** el sitio está **LIVE en `https://mizolutions.com`**
+> **▶️ ESTADO (cierre 2026-06-23):** el sitio está **LIVE en `https://mizolutions.com`**
 > (Astro 5 estático en Vercel, bilingüe EN/ES, DNS Route53→Vercel + SSL). Repo
-> `mizolutions/site` **público**, `main` = `f1cec08`, árbol limpio. **3 tareas
-> hechas** (S-07 higiene repo, S-01 1er post, S-02 footer honesto). **S-20 (email)
-> en curso** = el único pendiente con dependencia humana que **bloquea el CTA**.
+> `mizolutions/site` **público**, `main` = `87f4b72`, árbol limpio, build verde, `astro check` 0/0/0.
+> **Sesión 2026-06-23 (larga):** (1) caso de estudio **`/trinitrade` enriquecido** (TOC + 8 diagramas SVG
+> dark vía Kroki en `public/trinitrade/diagrams/` + "On GitHub" deep-links por sección); (2) **nueva página de
+> CV `/misael` + `/es/misael`** (proyecto destacado Trinitrade, Speaking con 3 conferencias 2024, botón Download
+> PDF en `public/MisaelTenorio_DevOps_SRE.pdf`); (3) **SEO**: JSON-LD (Person/Organization/WebSite/TechArticle)
+> + **Google Search Console verificado** (TXT en Route53) + sitemap enviado (**GSC procesando**); (4) **newsletter
+> (S-03)** endpoint Buttondown `.email`→`.com` + CSP arreglado, cuenta `mizolutions` **en revisión** por Buttondown;
+> (5) **programa de blog arrancado**: [BLOG_PLAN.md](BLOG_PLAN.md) (33 candidatos deep-dive bilingües, cadencia
+> semanal) + **E1 drafteado** (EN+ES, `draft:true`, **pendiente de review del operador**).
+>
+> **▶️ FOCO PRÓXIMA SESIÓN:** (a) **Search Console** — confirmar sitemap "Correcto" + Inspección de URL →
+> Solicitar indexación de `/`, `/misael`, `/trinitrade`; (b) **review del draft E1** y seguir escribiendo drafts
+> del blog (cluster E o el orden de [BLOG_PLAN §5](BLOG_PLAN.md)); (c) newsletter S-03 (esperar aprobación
+> Buttondown); (d) S-20 email (bloquea CTA) + S-04 OG image.
 
 ---
 
@@ -42,9 +53,11 @@ los preparas y me pides OK antes de aplicar a producción.
   sin humo. Audiencia: CTOs, Tech Leads, Founders.
 
 ## 2. Estado al cerrar (verificar con `git status -sb`)
-- `main` = `f1cec08`, en sync, build verde (7 páginas), `astro check` 0/0/0.
-- **0 incidencias bloqueantes.** Backlog **23 tareas (S-01..S-23), 3 hechas**.
-- 1 post de blog publicado (logs→observabilidad, EN+ES). Footer = GitHub + email.
+- `main` = `87f4b72`, en sync, build verde (~11 páginas), `astro check` 0/0/0.
+- **0 incidencias bloqueantes.** Páginas: home, blog, **`/misael` (CV)**, **`/trinitrade` (caso de estudio)**, todas EN+ES.
+- **SEO**: JSON-LD (Person/Org/WebSite/TechArticle) + Google Search Console verificado (TXT) + sitemap enviado (procesando).
+- **Blog**: 1 post publicado (logs→observabilidad) + **plan editorial de 33 candidatos** en [BLOG_PLAN.md](BLOG_PLAN.md); **E1 drafteado** (`draft:true`, pendiente review). Mecánica: escribir como `draft:true`, publicar 1/semana flipeando a `false`.
+- **Newsletter (S-03)**: form correcto (endpoint `buttondown.com`); cuenta Buttondown **en revisión**.
 
 ## 3. ⚠️ PENDIENTE PRINCIPAL — S-20: email `ping@mizolutions.com` (bloquea el CTA)
 El CTA primario "Book a reliability review" abre `mailto:ping@mizolutions.com`,
@@ -107,6 +120,13 @@ npx astro check        # tipos/plantillas (debe dar 0/0/0)
   `--accept-visibility-change-consequences`.
 
 **Primer paso al abrir:** `git status -sb`, lee [CONTROL_TOWER.md](CONTROL_TOWER.md)
-§1+§2, y enfócate en **S-20 (email)** si el operador ya hizo el signup de Zoho
-(pídele el TXT de verificación), o en el siguiente del Top-3. El sitio ya está
-LIVE; el trabajo es identidad + crecimiento, sin romper el minimalismo ni la marca.
+§1+§2 + [BLOG_PLAN.md](BLOG_PLAN.md). Prioridad del día: **(a)** retomar **Search Console** (confirmar sitemap
+"Correcto" + Inspección de URL → Solicitar indexación de `/`, `/misael`, `/trinitrade`); **(b)** **review del
+draft E1** del blog y seguir drafteando (cluster E o el orden de BLOG_PLAN §5, EN+ES, `draft:true`); **(c)**
+newsletter S-03 (esperar aprobación Buttondown); **(d)** S-20 email (bloquea CTA) + S-04 OG image. El sitio ya
+está LIVE; el trabajo es contenido + crecimiento + SEO, sin romper el minimalismo ni la marca.
+
+> ⚠️ **Footgun de entorno:** la red corporativa del operador (Palo Alto/Mastercard) **sinkholea `mizolutions.com`**
+> → cualquier fetch/curl/navegador desde aquí da **503** (página de bloqueo, NO fallo del sitio). Para verificar
+> el sitio en vivo usa `gh api repos/mizolutions/site/commits/<sha>/status` (Vercel=success) o pide al operador
+> que lo abra desde su red personal. Push: commit como `Mizolutions`/`ping@mizolutions.com` (gh auth ya configurado).

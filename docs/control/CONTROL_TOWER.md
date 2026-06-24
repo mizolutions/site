@@ -7,7 +7,7 @@
 >
 > **Última actualización:** 2026-06-23 (**sesión larga — portfolio Trinitrade + CV + SEO**). El sitio
 > sigue **LIVE en `https://mizolutions.com`** (Astro 5 estático en Vercel, bilingüe EN/ES). Repo
-> `mizolutions/site` (**público**), `main` = `6df0735`, build verde (~11 páginas), `astro check` 0/0/0.
+> `mizolutions/site` (**público**), `main` = `87f4b72`, build verde (~11 páginas), `astro check` 0/0/0.
 > Hitos de hoy: **(1)** caso de estudio **`/trinitrade` (EN+ES)** enriquecido — TOC, **8 diagramas de
 > arquitectura** (SVG dark vía Kroki), links al repo público por sección, home alineada al marco honesto;
 > **(2)** nueva **página de CV `/misael` (EN+ES)** con Trinitrade como proyecto destacado, sección
@@ -36,7 +36,9 @@
 > tira el POST) → `.com` + CSP `form-action` actualizada; cuenta `mizolutions` creada pero **en revisión** por
 > Buttondown (el form devuelve su página de error de cuenta-no-aprobada, no un fallo del sitio). Expectativa SEO
 > honesta fijada: rankeable marca/long-tail (misael tenorio, mizolutions, trinitrade), NO términos head genéricos.
-> ~9 commits (`255eac5`→`6df0735`).
+> ~13 commits (`255eac5`→`87f4b72`). **(6) Blog:** arrancado el programa de contenido — [BLOG_PLAN.md](BLOG_PLAN.md)
+> con **33 candidatos** deep-dive bilingües minados de Trinitrade (6 clusters, cadencia semanal, mecánica
+> `draft:true`) + **E1 drafteado** ("no trading edge in 7 strategies", EN+ES, pendiente review del operador).
 >
 > **🟢 Sesión 2026-06-16 (cierre) — repo público + 1er post + identidades.** Tras
 > el bootstrap (abajo): (1) repo flipeado a **público** (build-in-public) +
@@ -69,7 +71,7 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | # | Dominio | Estado | KPI primario | Valor actual | Owner |
 |---|---|---|---|---|---|
-| 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`6df0735`, Astro 5 estático, `npm run build` verde (~11 páginas + sitemap), `astro check` 0/0/0 | tú |
+| 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`87f4b72`, Astro 5 estático, `npm run build` verde (~11 páginas + sitemap), `astro check` 0/0/0 | tú |
 | 2 | **Content / Blog** | 🟢 | # páginas · copy fresco | Landing EN+ES + 1 post (S-01). **NUEVO 2026-06-23:** caso de estudio **`/trinitrade` (EN+ES)** enriquecido (TOC + 8 diagramas SVG + repo deep-links) + **CV `/misael` (EN+ES)** (proyecto destacado, Speaking, Download PDF). **Plan editorial: 33 candidatos de blog** en [BLOG_PLAN.md](BLOG_PLAN.md) (deep-dive bilingüe, cadencia semanal). Footer honesto (S-02 ✅). **email aún no funciona** (S-20). 404 solo EN (S-06) | tú |
 | 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. **NUEVO:** TXT `google-site-verification` añadido para Search Console. `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
 | 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · structured data · analytics | SEO base OK (canonical+hreflang+OG+sitemap+robots). **NUEVO 2026-06-23:** **JSON-LD** (Person/Organization/WebSite/TechArticle) + **Google Search Console verificado** + sitemap enviado (**procesando**, retomar mañana). **Pendiente:** OG image (S-04), Analytics OFF (S-05), **newsletter (S-03) cuenta Buttondown en revisión** | tú |
@@ -102,7 +104,7 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | Hecho | Valor |
 |---|---|
-| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `6df0735` |
+| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `87f4b72` |
 | Local | `/home/dc-user/workspace/mizolutions-site` (sibling del trading-system, **fuera** del workspace VS Code) |
 | Stack | Astro 5 estático, TypeScript, CSS tokens a mano, i18n EN/ES |
 | Hosting | Vercel (plan **Hobby** — ⚠️ uso comercial pide **Pro** por ToS) |
@@ -119,7 +121,7 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | Fecha | Resumen | `main` |
 |---|---|---|
-| 2026-06-23 | **Portfolio Trinitrade** (`/trinitrade` TOC + 8 diagramas SVG + repo links) + **CV `/misael` EN+ES** (Speaking + Download PDF) + **SEO JSON-LD** + **Search Console verificado** + newsletter endpoint fix (S-03 en revisión) | `6df0735` |
+| 2026-06-23 | **Portfolio Trinitrade** (`/trinitrade` TOC + 8 diagramas SVG + repo links) + **CV `/misael` EN+ES** (Speaking + Download PDF) + **SEO JSON-LD** + **Search Console verificado** + newsletter endpoint fix (S-03 en revisión) + **plan de blog (BLOG_PLAN, 33 candidatos)** + **draft E1** | `87f4b72` |
 | 2026-06-16 | Bootstrap: landing Astro 5 live + DNS Route53→Vercel + torre de control | `931bd55` |
 | 2026-06-16 | Repo → público; backlog completo (S-01..S-19) poblado en RAID + ROADMAP | `fe6925e` |
 | 2026-06-16 | S-07 higiene repo (description/topics/homepage) + S-01 1er post publicado (EN+ES) | `c8e28c6`+ |
