@@ -61,7 +61,7 @@
 | ID | Working title (EN) | Hook / angle | Source | Status |
 |---|---|---|---|---|
 | B1 | Scaling a trading system to zero on nights and weekends | the cost-auto-stop scheduler is the #1 lever | `scheduler_stack.py`; ADR | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
-| B2 | Your monthly cloud bill is an SLO | treat cost as a first-class reliability metric | cost-scorecard; Cost Explorer audit | idea |
+| B2 | Your monthly cloud bill is an SLO | treat cost as a first-class reliability metric | cost-scorecard; Cost Explorer audit | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | B3 | Fargate Spot + an on-demand base: the trade-off as code | cheap but always-placed during market hours | `compute_stack.py`; fargate-spot notes | idea |
 | B4 | When CI is your biggest cloud bill | the runner that quietly became line item #1 | ci-cascade + codebuild notes | idea |
 
