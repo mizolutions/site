@@ -50,7 +50,7 @@
 | ID | Working title (EN) | Hook / angle | Source | Status |
 |---|---|---|---|---|
 | A0 | From storing logs to real observability | logs ≠ observability; questions you can answer in prod | observability worklogs | ✅ **published** |
-| A1 | Health checks that don't lie: liveness vs readiness (and the 1-second rule) | every probe needs its own timeout or it hangs the fleet | health-endpoint design; `src/main.py` | idea |
+| A1 | Health checks that don't lie: liveness vs readiness (and the 1-second rule) | every probe needs its own timeout or it hangs the fleet | health-endpoint design; `src/main.py` | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | A2 | Don't page me at 3 a.m. for a system that's off | composite alarms + off-hours gating to kill false pages | ADR-008; cloudwatch-alarm notes | idea |
 | A3 | The alert that fired but never arrived | notification fan-out as its own failure surface | ADR-009; SNS_NOTIFICATIONS_ARCHITECTURE | idea |
 | A4 | A traffic-light incident wall in Grafana, for $0 | single-pane triage with no new instrumentation | grafana worklogs; MONITORING_ARCHITECTURE | idea |
