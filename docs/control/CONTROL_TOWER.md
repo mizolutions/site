@@ -5,9 +5,27 @@
 > **Owner:** tú (single operator). **Cadencia:** actualizar al inicio Y al cierre
 > de cada sesión que toque el sitio.
 >
-> **Última actualización:** 2026-06-24 (**programa de blog COMPLETO — 33/33 drafts**). El sitio
+> **Última actualización:** 2026-06-24 (**E1 publicado + automatización de publicación Fase 0**). El sitio
 > sigue **LIVE en `https://mizolutions.com`** (Astro 5 estático en Vercel, bilingüe EN/ES). Repo
-> `mizolutions/site` (**público**), `main` = `c5cb727`, build verde (~11 páginas), `astro check` 0/0/0.
+> `mizolutions/site` (**público**), `main` = `7147db4`, build verde (13 páginas + 3 feeds RSS), `astro check` 0/0/0.
+>
+> **🟢 Sesión 2026-06-24 (tarde) — 1er post publicado + automatización de publicación (Fase 0).**
+> (1) **Publicado E1** *"I tried to find a trading edge and failed 7 times"* (EN+ES, `draft:false`) — primer post
+> de la cola de [BLOG_PLAN §5](BLOG_PLAN.md) tras A0. Build pasó de 11→13 páginas; Vercel `success`.
+> (2) **Diseñada y arrancada la automatización semanal** (modelo POSSE "RSS como espina dorsal"): un evento —
+> "el post sale vivo" — dispara sitio + email + social vía RSS. **Fase 0 (fundación) SHIPPED:**
+> **(a)** gate de publicación centralizado en `src/utils/posts.ts` (en prod un post vive solo si `draft:false`
+> **y** `pubDate <= build`; dev muestra todo para preview) aplicado en índice + slug EN/ES;
+> **(b)** **3 feeds RSS** — `/rss.xml` (EN), `/es/rss.xml` (ES) + `/newsletter.xml` **bilingüe** (empareja EN+ES
+> por `pubDate` → 1 email semanal con teaser EN arriba/ES abajo, para Buttondown RSS-to-email);
+> **(c)** **GitHub Action `weekly-publish.yml`** — cron lunes 13:00 UTC → Vercel Deploy Hook (+ `workflow_dispatch`),
+> **no-opea** hasta que exista el secret `VERCEL_DEPLOY_HOOK`;
+> **(d)** campo frontmatter `socialEN` (hook para la Fase 2 social) + RSS discovery links en `<head>`.
+> E1 re-fechado a 2026-06-23 para seguir vivo bajo el gate. `astro check` 0/0/0, 2 commits (`feef6da`, `7147db4`),
+> Vercel `success`. **Decisiones de scope** (presupuesto ~$15-30/mo, email biling\u00fce en uno, social EN-only con
+> aprobación, copy pre-escrito) en [BLOG_PLAN §8](BLOG_PLAN.md). **⚙️ PENDIENTE OPERADOR (activa el cron):** crear
+> Deploy Hook en Vercel → cargar URL como secret `VERCEL_DEPLOY_HOOK` en GitHub. **Fase 1 (email)** bloqueada por
+> aprobación de Buttondown; **Fase 2 (social)** bloqueada por crear LinkedIn Page + X.
 >
 > **🟢 Sesión 2026-06-24 — programa de blog completado (33/33 candidatos drafteados, EN+ES).**
 > Sesión 100% producción de contenido. Se completaron los **6 clusters** de [BLOG_PLAN.md](BLOG_PLAN.md):
@@ -85,8 +103,8 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | # | Dominio | Estado | KPI primario | Valor actual | Owner |
 |---|---|---|---|---|---|
-| 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`c5cb727`, Astro 5 estático, `npm run build` verde (~11 páginas + sitemap), `astro check` 0/0/0 | tú |
-| 2 | **Content / Blog** | 🟢 | # páginas · drafts listos | Landing EN+ES + 1 post publicado (S-01) + `/trinitrade` + `/misael` (todas EN+ES). **NUEVO 2026-06-24:** **programa de blog COMPLETO — 33/33 candidatos drafteados** (EN+ES = 66 `.md`, 4–5 diagramas SVG + callout + refs cada uno, **todos `draft:true`**). 6 clusters cerrados (A/B/C/D/E/F). [BLOG_PLAN.md](BLOG_PLAN.md): 0 filas en `idea`. **Siguiente: review + publicar 1/semana** (flip `draft:false`). **email aún no funciona** (S-20). 404 solo EN (S-06) | tú |
+| 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`7147db4`, Astro 5 estático, `npm run build` verde (13 páginas + 3 feeds RSS + sitemap), `astro check` 0/0/0 | tú |
+| 2 | **Content / Blog** | 🟢 | posts live · cola · automatización | **2 posts LIVE** (A0 + **E1 publicado hoy**) + **31 drafts** en cola. **NUEVO 2026-06-24 (tarde):** automatización de publicación **Fase 0** — gate por fecha+draft, **3 feeds RSS** (`/rss.xml`, `/es/rss.xml`, `/newsletter.xml` bilingüe), cron lunes → Vercel Deploy Hook (no-opea hasta cargar secret). Mecánica de publicar: `draft:false` + `pubDate` de lunes futuro. Ver [BLOG_PLAN §8](BLOG_PLAN.md). **email aún no funciona** (S-20). 404 solo EN (S-06) | tú |
 | 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. **NUEVO:** TXT `google-site-verification` añadido para Search Console. `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
 | 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · structured data · analytics | SEO base OK (canonical+hreflang+OG+sitemap+robots). **NUEVO 2026-06-23:** **JSON-LD** (Person/Organization/WebSite/TechArticle) + **Google Search Console verificado** + sitemap enviado (**procesando**, retomar mañana). **Pendiente:** OG image (S-04), Analytics OFF (S-05), **newsletter (S-03) cuenta Buttondown en revisión** | tú |
 | 5 | **Security / Deps** | 🟢 | headers · npm audit | CSP+HSTS+headers vía `vercel.json`. `npm audit`: 3 highs **aceptados** (no aplican a build estático). **Repo público** → account-id/zone-id en docs (R-07, decisión S-11) | tú |
@@ -102,14 +120,16 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 > Ordenado por impacto × oportunidad. Backlog completo (S-01..S-23) en
 > [RAID §I](RAID.md) + [ROADMAP](ROADMAP.md).
 
-1. **▶️ Review + publicar el blog (programa completo)** — los **33 posts** están drafteados (EN+ES, `draft:true`,
-   visibles en `npm run dev` @ localhost:4321). Siguiente: **revisar los drafts** y empezar a **publicar 1/semana**
-   flipeando `draft:false` según el orden de [BLOG_PLAN §5](BLOG_PLAN.md). Dominio: Content.
+1. **⚙️ Activar el cron de publicación (pendiente operador)** — la automatización Fase 0 está desplegada pero
+   **inerte** hasta que crees el **Deploy Hook en Vercel** (Settings → Git → Deploy Hooks, branch `main`) y cargues
+   su URL como secret **`VERCEL_DEPLOY_HOOK`** en GitHub (Settings → Secrets → Actions). Luego: probar con Actions →
+   "Weekly publish" → Run workflow. Dominio: Content/Infra.
 2. **⚠️ Email `ping@mizolutions.com` funcional (S-20)** — **bloquea el CTA primario** (el `mailto:` rebota:
-   0 MX en la zona). Cablear forwarding (MX+TXT) en Route53 tras elegir proveedor (Zoho Free planeado). Dominio: Infra/Growth.
-3. **Search Console + Newsletter (S-03) + OG image (S-04) + identidades (S-21/S-22)** — GSC: confirmar sitemap
-   "Correcto" + Inspección de URL → Solicitar indexación de `/`, `/misael`, `/trinitrade`. Buttondown `mizolutions`
-   **en revisión** (form correcto). Falta OG image para previews; reservar handles sociales (signup humano). Dominio: SEO/Growth.
+   0 MX en la zona) **y la Fase 1 del newsletter**. Cablear forwarding/MX+SPF+DKIM en Route53 tras elegir proveedor
+   (Zoho Free planeado). Dominio: Infra/Growth.
+3. **Buttondown aprobación (Fase 1) + crear LinkedIn Page/X (Fase 2) + Search Console + OG image (S-04)** —
+   newsletter RSS-to-email espera aprobación de Buttondown; social espera crear las cuentas; GSC: solicitar
+   indexación de `/`, `/misael`, `/trinitrade`. Dominio: SEO/Growth.
 
 ---
 
@@ -117,13 +137,14 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | Hecho | Valor |
 |---|---|
-| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `c5cb727` |
+| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `7147db4` |
 | Local | `/home/dc-user/workspace/mizolutions-site` (sibling del trading-system, **fuera** del workspace VS Code) |
 | Stack | Astro 5 estático, TypeScript, CSS tokens a mano, i18n EN/ES |
 | Hosting | Vercel (plan **Hobby** — ⚠️ uso comercial pide **Pro** por ToS) |
 | Dominio | `mizolutions.com` → `A 216.198.79.1` (Vercel), zona Route53 `Z062327723TCUEVA9TY8M` en cuenta PROD trading `520999258244` |
 | Dominio técnico | `miz0.com` = backend/dashboards (Route53/CDK del trading-system) — **NO se toca desde aquí** |
-| Páginas | home, blog (1 post publicado + **33 drafts EN+ES**), **`/misael` (CV)**, **`/trinitrade` (caso de estudio)** — todas EN+ES (~11 rutas en el sitemap; los drafts NO entran al build de prod) |
+| Páginas | home, blog (**2 posts live: A0 + E1** + 31 drafts EN+ES), **`/misael` (CV)**, **`/trinitrade` (caso de estudio)** — todas EN+ES (13 páginas en build prod; los drafts/futuros NO entran) |
+| Feeds / automatización | `/rss.xml` (EN), `/es/rss.xml` (ES), `/newsletter.xml` (bilingüe, para Buttondown). Gate por `draft`+`pubDate` en `src/utils/posts.ts`. Cron lunes en `.github/workflows/weekly-publish.yml` (necesita secret `VERCEL_DEPLOY_HOOK`). Diseño en [BLOG_PLAN §8](BLOG_PLAN.md) |
 | SEO | robots + sitemap + canonical + hreflang + OG + **JSON-LD** (Person/Org/WebSite/TechArticle); Google Search Console verificado (TXT) |
 | Build | `npm run build` (+ sitemap), `npm run dev` (preview), `npx astro check` (tipos) |
 | Deploy | push a `main` → deploy de producción automático en Vercel |
