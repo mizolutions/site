@@ -94,7 +94,7 @@
 | E4 | The $0 control test: when a t=5.7 'edge' is just beta | market-neutral diagnostic kills a fragile signal | ADR-025/026 | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | E5 | Stop-rules: concluding a research program is a success of method | multiple-comparisons discipline, pre-committed budget | ADR-019/026 | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | E6 | A bias-confirmation toolkit for thin backtest "wins" | equal-weight control · look-ahead ablation · bootstrap | research-discipline notes | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
-| E7 | Data gotchas in vendor daily bars | SIP vs IEX, adjustment=all, spin-off artifacts | research notes; MD-CA-1 | idea |
+| E7 | Data gotchas in vendor daily bars | SIP vs IEX, adjustment=all, spin-off artifacts | research notes; MD-CA-1 | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 
 ### Cluster F — Engineering discipline / meta (Lead-level signals)
 | ID | Working title (EN) | Hook / angle | Source | Status |
