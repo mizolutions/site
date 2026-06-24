@@ -54,7 +54,7 @@
 | A2 | Don't page me at 3 a.m. for a system that's off | composite alarms + off-hours gating to kill false pages | ADR-008; cloudwatch-alarm notes | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | A3 | The alert that fired but never arrived | notification fan-out as its own failure surface | ADR-009; SNS_NOTIFICATIONS_ARCHITECTURE | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | A4 | A traffic-light incident wall in Grafana, for $0 | single-pane triage with no new instrumentation | grafana worklogs; MONITORING_ARCHITECTURE | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
-| A5 | SLOs for a system only you operate | error budgets without a team | SLO.md | idea |
+| A5 | SLOs for a system only you operate | error budgets without a team | SLO.md | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | A6 | CloudWatch alarm pitfalls I learned the hard way | dimensions, SEARCH, period limits, bootstrap false-pages | cloudwatch-alarm notes | idea |
 
 ### Cluster B — FinOps / cloud cost
