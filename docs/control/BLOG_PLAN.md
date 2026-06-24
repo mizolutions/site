@@ -71,7 +71,7 @@
 | C1 | Anything not in IaC will drift: the silent paper→live revert | a deploy reverted prod out-of-band; fix = declarative | ADR-013; live worklog | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | C2 | Never deploy a stateful service off-hours | the deployment circuit-breaker rollback trap | fargate-spot notes; worklog | **draft+visuals ✅ (EN+ES, 3 diagramas + callout + refs, en review)** |
 | C3 | CodeBuild runs in dash, not bash | the `${PIPESTATUS[0]}` bug that hid every result | codebuild-buildspec notes | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
-| C4 | Killing static AWS keys: keyless CI with GitHub OIDC | short-lived tokens, no secrets in CI | deploy workflow; security | idea |
+| C4 | Killing static AWS keys: keyless CI with GitHub OIDC | short-lived tokens, no secrets in CI | deploy workflow; security | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | C5 | Cascade debt: when one red pipeline hides eight layers | reactivating a long-red job surfaces debt one step at a time | ci-pipeline-cascade notes | idea |
 | C6 | AWS CLI & CloudFormation footguns | empty AWS_PROFILE, ASCII-only descriptions, file:// executor | aws-cli-and-cfn notes | idea |
 
