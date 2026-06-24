@@ -91,7 +91,7 @@
 | E1 | I tried to find a trading edge and failed 7 times — and that's the point | overview/capstone of the program | ADR-026/027; case study §6 | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | E2 | Pre-registration for backtests: how to not fool yourself | freeze the hypothesis in git before you run it | research-discipline notes; charter | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + code + refs, en review)** |
 | E3 | Survivorship bias is sneakier than you think | the GO that became a NO-GO on point-in-time data | ADR-018/021 | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
-| E4 | The $0 control test: when a t=5.7 'edge' is just beta | market-neutral diagnostic kills a fragile signal | ADR-025/026 | idea |
+| E4 | The $0 control test: when a t=5.7 'edge' is just beta | market-neutral diagnostic kills a fragile signal | ADR-025/026 | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | E5 | Stop-rules: concluding a research program is a success of method | multiple-comparisons discipline, pre-committed budget | ADR-019/026 | idea |
 | E6 | A bias-confirmation toolkit for thin backtest "wins" | equal-weight control · look-ahead ablation · bootstrap | research-discipline notes | idea |
 | E7 | Data gotchas in vendor daily bars | SIP vs IEX, adjustment=all, spin-off artifacts | research notes; MD-CA-1 | idea |
