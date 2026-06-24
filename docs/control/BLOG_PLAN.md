@@ -83,7 +83,7 @@
 | D3 | Tamper-evident audit logs with a hash-chain | append-only still needs a lock (concurrency bug + fix) | AUDIT_TRAIL; audit worklog | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | D4 | Idempotent order submission without a distributed lock | single replica as a deliberate design choice | asyncio-lock notes; `submit_lock.py` | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 | D5 | The SQLAlchemy enum bug that wasn't | Postgres enum case coercion, debunked | sqlalchemy-enum notes | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
-| D6 | Async SQLAlchemy with asyncpg: patterns and pitfalls | what bites under FastAPI + pytest-asyncio | ADR-003 | idea |
+| D6 | Async SQLAlchemy with asyncpg: patterns and pitfalls | what bites under FastAPI + pytest-asyncio | ADR-003 | **draft+visuals ✅ (EN+ES, 4 diagramas + callout + refs, en review)** |
 
 ### Cluster E — The honest quant-research saga ⭐ (signature series)
 | ID | Working title (EN) | Hook / angle | Source | Status |
