@@ -3,7 +3,7 @@ title: 'Intenté encontrar un edge de trading — y fallé siete veces. Ese es e
 description: 'Un programa de research pre-registrado y con controles de sesgo no halló edge robusto en siete familias de estrategia. Por qué un negativo limpio es un éxito de método.'
 pubDate: 2026-06-30
 lang: 'es'
-draft: true
+draft: false
 tags: ['quant', 'research', 'backtesting', 'engineering-discipline', 'trading']
 ---
 

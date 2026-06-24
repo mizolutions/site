@@ -3,7 +3,7 @@ title: 'I tried to find a trading edge — and failed seven times. That is the p
 description: 'A pre-registered, bias-controlled research program found no robust edge across seven strategy families. Why a clean, well-documented negative is a success of method.'
 pubDate: 2026-06-30
 lang: 'en'
-draft: true
+draft: false
 tags: ['quant', 'research', 'backtesting', 'engineering-discipline', 'trading']
 ---
 
