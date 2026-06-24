@@ -5,9 +5,23 @@
 > **Owner:** tú (single operator). **Cadencia:** actualizar al inicio Y al cierre
 > de cada sesión que toque el sitio.
 >
-> **Última actualización:** 2026-06-23 (**sesión larga — portfolio Trinitrade + CV + SEO**). El sitio
+> **Última actualización:** 2026-06-24 (**programa de blog COMPLETO — 33/33 drafts**). El sitio
 > sigue **LIVE en `https://mizolutions.com`** (Astro 5 estático en Vercel, bilingüe EN/ES). Repo
-> `mizolutions/site` (**público**), `main` = `87f4b72`, build verde (~11 páginas), `astro check` 0/0/0.
+> `mizolutions/site` (**público**), `main` = `c5cb727`, build verde (~11 páginas), `astro check` 0/0/0.
+>
+> **🟢 Sesión 2026-06-24 — programa de blog completado (33/33 candidatos drafteados, EN+ES).**
+> Sesión 100% producción de contenido. Se completaron los **6 clusters** de [BLOG_PLAN.md](BLOG_PLAN.md):
+> **A** SRE/Obs (6) · **B** FinOps (4) · **C** IaC war-stories (6) · **D** Data (6) · **E** Research (7) ·
+> **F** Lead-discipline (4) = **33 posts**, cada uno **EN+ES** (66 `.md`) con **4–5 diagramas** Mermaid→SVG
+> (Kroki, `theme=dark`, commiteados en `public/blog/<en-slug>/` → **33 carpetas de assets**), 1 callout
+> "Key insight", sección **References** (externos rigurosos + internos mizolutions/Trinitrade + interlinks
+> entre hermanos), `astro check` 0/0/0 y `npm run build` limpio en cada uno. **TODOS `draft:true`** (invisibles
+> en prod, visibles en `npm run dev`). `docs/control/BLOG_PLAN.md`: las 33 filas marcadas "draft+visuals ✅ …
+> en review" (**0 filas en estado `idea`**). Framing honesto en todos (sin claims P&L/retorno, sin secretos,
+> candor sobre fallos; F4 = capstone "build & conclude honestly"). ~16 commits esta sesión
+> (`6b4b893`…→`c5cb727`), todos pusheados a `main`, Vercel `success` (drafts excluidos → cero cambio en la web
+> pública). **Pendiente:** review del operador de los 33 drafts + empezar a **publicar 1/semana** (flip
+> `draft:false` según orden de [BLOG_PLAN §5](BLOG_PLAN.md)).
 > Hitos de hoy: **(1)** caso de estudio **`/trinitrade` (EN+ES)** enriquecido — TOC, **8 diagramas de
 > arquitectura** (SVG dark vía Kroki), links al repo público por sección, home alineada al marco honesto;
 > **(2)** nueva **página de CV `/misael` (EN+ES)** con Trinitrade como proyecto destacado, sección
@@ -71,8 +85,8 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | # | Dominio | Estado | KPI primario | Valor actual | Owner |
 |---|---|---|---|---|---|
-| 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`87f4b72`, Astro 5 estático, `npm run build` verde (~11 páginas + sitemap), `astro check` 0/0/0 | tú |
-| 2 | **Content / Blog** | 🟢 | # páginas · copy fresco | Landing EN+ES + 1 post (S-01). **NUEVO 2026-06-23:** caso de estudio **`/trinitrade` (EN+ES)** enriquecido (TOC + 8 diagramas SVG + repo deep-links) + **CV `/misael` (EN+ES)** (proyecto destacado, Speaking, Download PDF). **Plan editorial: 33 candidatos de blog** en [BLOG_PLAN.md](BLOG_PLAN.md) (deep-dive bilingüe, cadencia semanal). Footer honesto (S-02 ✅). **email aún no funciona** (S-20). 404 solo EN (S-06) | tú |
+| 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`c5cb727`, Astro 5 estático, `npm run build` verde (~11 páginas + sitemap), `astro check` 0/0/0 | tú |
+| 2 | **Content / Blog** | 🟢 | # páginas · drafts listos | Landing EN+ES + 1 post publicado (S-01) + `/trinitrade` + `/misael` (todas EN+ES). **NUEVO 2026-06-24:** **programa de blog COMPLETO — 33/33 candidatos drafteados** (EN+ES = 66 `.md`, 4–5 diagramas SVG + callout + refs cada uno, **todos `draft:true`**). 6 clusters cerrados (A/B/C/D/E/F). [BLOG_PLAN.md](BLOG_PLAN.md): 0 filas en `idea`. **Siguiente: review + publicar 1/semana** (flip `draft:false`). **email aún no funciona** (S-20). 404 solo EN (S-06) | tú |
 | 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. **NUEVO:** TXT `google-site-verification` añadido para Search Console. `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
 | 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · structured data · analytics | SEO base OK (canonical+hreflang+OG+sitemap+robots). **NUEVO 2026-06-23:** **JSON-LD** (Person/Organization/WebSite/TechArticle) + **Google Search Console verificado** + sitemap enviado (**procesando**, retomar mañana). **Pendiente:** OG image (S-04), Analytics OFF (S-05), **newsletter (S-03) cuenta Buttondown en revisión** | tú |
 | 5 | **Security / Deps** | 🟢 | headers · npm audit | CSP+HSTS+headers vía `vercel.json`. `npm audit`: 3 highs **aceptados** (no aplican a build estático). **Repo público** → account-id/zone-id en docs (R-07, decisión S-11) | tú |
@@ -88,15 +102,14 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 > Ordenado por impacto × oportunidad. Backlog completo (S-01..S-23) en
 > [RAID §I](RAID.md) + [ROADMAP](ROADMAP.md).
 
-1. **▶️ Search Console (retomar mañana)** — el dominio está **verificado** y el sitemap `sitemap-index.xml`
-   **enviado**; GSC lo está **procesando** (estado "no válido/procesando" es normal en propiedad nueva, se
-   resuelve solo). Mañana: confirmar sitemap en "Correcto" + **Inspección de URL** → Solicitar indexación de
-   `/`, `/misael`, `/trinitrade`. Dominio: SEO.
+1. **▶️ Review + publicar el blog (programa completo)** — los **33 posts** están drafteados (EN+ES, `draft:true`,
+   visibles en `npm run dev` @ localhost:4321). Siguiente: **revisar los drafts** y empezar a **publicar 1/semana**
+   flipeando `draft:false` según el orden de [BLOG_PLAN §5](BLOG_PLAN.md). Dominio: Content.
 2. **⚠️ Email `ping@mizolutions.com` funcional (S-20)** — **bloquea el CTA primario** (el `mailto:` rebota:
    0 MX en la zona). Cablear forwarding (MX+TXT) en Route53 tras elegir proveedor (Zoho Free planeado). Dominio: Infra/Growth.
-3. **Newsletter (S-03) — esperar aprobación de Buttondown** + **OG image (S-04)** + **identidades sociales
-   (S-21 LinkedIn / S-22 X)**: la cuenta Buttondown `mizolutions` está **en revisión** (el form ya está correcto);
-   falta la imagen OG para previews al compartir; reservar handles sociales (signup humano). Dominio: Growth.
+3. **Search Console + Newsletter (S-03) + OG image (S-04) + identidades (S-21/S-22)** — GSC: confirmar sitemap
+   "Correcto" + Inspección de URL → Solicitar indexación de `/`, `/misael`, `/trinitrade`. Buttondown `mizolutions`
+   **en revisión** (form correcto). Falta OG image para previews; reservar handles sociales (signup humano). Dominio: SEO/Growth.
 
 ---
 
@@ -104,13 +117,13 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | Hecho | Valor |
 |---|---|
-| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `87f4b72` |
+| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `c5cb727` |
 | Local | `/home/dc-user/workspace/mizolutions-site` (sibling del trading-system, **fuera** del workspace VS Code) |
 | Stack | Astro 5 estático, TypeScript, CSS tokens a mano, i18n EN/ES |
 | Hosting | Vercel (plan **Hobby** — ⚠️ uso comercial pide **Pro** por ToS) |
 | Dominio | `mizolutions.com` → `A 216.198.79.1` (Vercel), zona Route53 `Z062327723TCUEVA9TY8M` en cuenta PROD trading `520999258244` |
 | Dominio técnico | `miz0.com` = backend/dashboards (Route53/CDK del trading-system) — **NO se toca desde aquí** |
-| Páginas | home, blog (+1 post), **`/misael` (CV)**, **`/trinitrade` (caso de estudio)** — todas EN+ES (~11 rutas en el sitemap) |
+| Páginas | home, blog (1 post publicado + **33 drafts EN+ES**), **`/misael` (CV)**, **`/trinitrade` (caso de estudio)** — todas EN+ES (~11 rutas en el sitemap; los drafts NO entran al build de prod) |
 | SEO | robots + sitemap + canonical + hreflang + OG + **JSON-LD** (Person/Org/WebSite/TechArticle); Google Search Console verificado (TXT) |
 | Build | `npm run build` (+ sitemap), `npm run dev` (preview), `npx astro check` (tipos) |
 | Deploy | push a `main` → deploy de producción automático en Vercel |

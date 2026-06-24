@@ -6,22 +6,23 @@
 > cada sesión. Fuente de verdad: [CONTROL_TOWER.md](CONTROL_TOWER.md) +
 > [RAID.md](RAID.md) + [ROADMAP.md](ROADMAP.md).
 >
-> **▶️ ESTADO (cierre 2026-06-23):** el sitio está **LIVE en `https://mizolutions.com`**
+> **▶️ ESTADO (cierre 2026-06-24):** el sitio está **LIVE en `https://mizolutions.com`**
 > (Astro 5 estático en Vercel, bilingüe EN/ES, DNS Route53→Vercel + SSL). Repo
-> `mizolutions/site` **público**, `main` = `87f4b72`, árbol limpio, build verde, `astro check` 0/0/0.
-> **Sesión 2026-06-23 (larga):** (1) caso de estudio **`/trinitrade` enriquecido** (TOC + 8 diagramas SVG
-> dark vía Kroki en `public/trinitrade/diagrams/` + "On GitHub" deep-links por sección); (2) **nueva página de
-> CV `/misael` + `/es/misael`** (proyecto destacado Trinitrade, Speaking con 3 conferencias 2024, botón Download
-> PDF en `public/MisaelTenorio_DevOps_SRE.pdf`); (3) **SEO**: JSON-LD (Person/Organization/WebSite/TechArticle)
-> + **Google Search Console verificado** (TXT en Route53) + sitemap enviado (**GSC procesando**); (4) **newsletter
-> (S-03)** endpoint Buttondown `.email`→`.com` + CSP arreglado, cuenta `mizolutions` **en revisión** por Buttondown;
-> (5) **programa de blog arrancado**: [BLOG_PLAN.md](BLOG_PLAN.md) (33 candidatos deep-dive bilingües, cadencia
-> semanal) + **E1 drafteado** (EN+ES, `draft:true`, **pendiente de review del operador**).
+> `mizolutions/site` **público**, `main` = `c5cb727`, árbol limpio, build verde, `astro check` 0/0/0.
+> **Sesión 2026-06-24 (programa de blog COMPLETO):** se draftearon los **33 candidatos** de
+> [BLOG_PLAN.md](BLOG_PLAN.md) en los **6 clusters** (A SRE/Obs 6 · B FinOps 4 · C IaC 6 · D Data 6 ·
+> E Research 7 · F Lead-discipline 4). Cada post **EN+ES** (66 `.md`) con **4–5 diagramas** Mermaid→SVG
+> (Kroki `theme=dark`, en `public/blog/<en-slug>/` → 33 carpetas), callout "Key insight", sección References
+> (externos + internos + interlinks), `astro check` 0/0/0 + build limpio. **TODOS `draft:true`** (invisibles
+> en prod, visibles en `npm run dev`). BLOG_PLAN: 0 filas en `idea`. ~16 commits, todos en `main`, Vercel `success`.
+> **Sesiones previas (2026-06-23):** `/trinitrade` enriquecido (8 diagramas SVG + repo deep-links), CV `/misael`
+> (EN+ES), SEO/JSON-LD + Google Search Console verificado (sitemap procesando), newsletter S-03 (Buttondown en revisión).
 >
-> **▶️ FOCO PRÓXIMA SESIÓN:** (a) **Search Console** — confirmar sitemap "Correcto" + Inspección de URL →
-> Solicitar indexación de `/`, `/misael`, `/trinitrade`; (b) **review del draft E1** y seguir escribiendo drafts
-> del blog (cluster E o el orden de [BLOG_PLAN §5](BLOG_PLAN.md)); (c) newsletter S-03 (esperar aprobación
-> Buttondown); (d) S-20 email (bloquea CTA) + S-04 OG image.
+> **▶️ FOCO PRÓXIMA SESIÓN:** (a) **review de los 33 drafts del blog** (`npm run dev` → localhost:4321) y
+> empezar a **publicar 1/semana** flipeando `draft:false` según el orden de [BLOG_PLAN §5](BLOG_PLAN.md);
+> (b) **S-20 email** (bloquea CTA) — cablear MX/SPF/DKIM Zoho en Route53; (c) **Search Console** — confirmar
+> sitemap "Correcto" + Solicitar indexación de `/`, `/misael`, `/trinitrade`; (d) newsletter S-03 (esperar
+> Buttondown) + S-04 OG image + identidades S-21/S-22.
 
 ---
 
@@ -53,10 +54,10 @@ los preparas y me pides OK antes de aplicar a producción.
   sin humo. Audiencia: CTOs, Tech Leads, Founders.
 
 ## 2. Estado al cerrar (verificar con `git status -sb`)
-- `main` = `87f4b72`, en sync, build verde (~11 páginas), `astro check` 0/0/0.
+- `main` = `c5cb727`, en sync, build verde (~11 páginas), `astro check` 0/0/0.
 - **0 incidencias bloqueantes.** Páginas: home, blog, **`/misael` (CV)**, **`/trinitrade` (caso de estudio)**, todas EN+ES.
 - **SEO**: JSON-LD (Person/Org/WebSite/TechArticle) + Google Search Console verificado (TXT) + sitemap enviado (procesando).
-- **Blog**: 1 post publicado (logs→observabilidad) + **plan editorial de 33 candidatos** en [BLOG_PLAN.md](BLOG_PLAN.md); **E1 drafteado** (`draft:true`, pendiente review). Mecánica: escribir como `draft:true`, publicar 1/semana flipeando a `false`.
+- **Blog**: 1 post publicado (logs→observabilidad) + **programa COMPLETO: 33/33 candidatos drafteados** (EN+ES = 66 `.md`, 4–5 diagramas SVG + callout + refs cada uno, **todos `draft:true`**), 6 clusters cerrados, [BLOG_PLAN.md](BLOG_PLAN.md) 0 filas en `idea`. **Siguiente: review + publicar 1/semana** flipeando `draft:false`. Assets en `public/blog/<en-slug>/`.
 - **Newsletter (S-03)**: form correcto (endpoint `buttondown.com`); cuenta Buttondown **en revisión**.
 
 ## 3. ⚠️ PENDIENTE PRINCIPAL — S-20: email `ping@mizolutions.com` (bloquea el CTA)
