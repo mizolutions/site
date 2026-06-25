@@ -6,23 +6,23 @@
 > cada sesión. Fuente de verdad: [CONTROL_TOWER.md](CONTROL_TOWER.md) +
 > [RAID.md](RAID.md) + [ROADMAP.md](ROADMAP.md).
 >
-> **▶️ ESTADO (cierre 2026-06-24):** el sitio está **LIVE en `https://mizolutions.com`**
+> **▶️ ESTADO (apertura 2026-06-25):** el sitio está **LIVE en `https://mizolutions.com`**
 > (Astro 5 estático en Vercel, bilingüe EN/ES, DNS Route53→Vercel + SSL). Repo
-> `mizolutions/site` **público**, `main` = `c5cb727`, árbol limpio, build verde, `astro check` 0/0/0.
-> **Sesión 2026-06-24 (programa de blog COMPLETO):** se draftearon los **33 candidatos** de
-> [BLOG_PLAN.md](BLOG_PLAN.md) en los **6 clusters** (A SRE/Obs 6 · B FinOps 4 · C IaC 6 · D Data 6 ·
-> E Research 7 · F Lead-discipline 4). Cada post **EN+ES** (66 `.md`) con **4–5 diagramas** Mermaid→SVG
-> (Kroki `theme=dark`, en `public/blog/<en-slug>/` → 33 carpetas), callout "Key insight", sección References
-> (externos + internos + interlinks), `astro check` 0/0/0 + build limpio. **TODOS `draft:true`** (invisibles
-> en prod, visibles en `npm run dev`). BLOG_PLAN: 0 filas en `idea`. ~16 commits, todos en `main`, Vercel `success`.
-> **Sesiones previas (2026-06-23):** `/trinitrade` enriquecido (8 diagramas SVG + repo deep-links), CV `/misael`
-> (EN+ES), SEO/JSON-LD + Google Search Console verificado (sitemap procesando), newsletter S-03 (Buttondown en revisión).
+> `mizolutions/site` **público**, `main` = `4bc4d29`, árbol limpio, build verde (13 páginas + 3 feeds RSS), `astro check` 0/0/0.
+> **Sesión 2026-06-24:** (1) **programa de blog COMPLETO** — 33/33 candidatos drafteados (EN+ES, 6 clusters,
+> 4–5 diagramas + callout + refs cada uno, todos `draft:true`). (2) **Publicado E1** *"I tried to find a trading
+> edge and failed 7 times"* (EN+ES) — 1er post de la cola tras A0 → **2 posts LIVE**. (3) **Automatización de
+> publicación Fase 0** (modelo POSSE "RSS como espina dorsal"): gate por `draft`+`pubDate` (`src/utils/posts.ts`),
+> **3 feeds RSS** (`/rss.xml` EN, `/es/rss.xml` ES, `/newsletter.xml` bilingüe para Buttondown), **GitHub Action
+> cron lunes → Vercel Deploy Hook** (`weekly-publish.yml`, no-opea hasta cargar secret), campo `socialEN`. Diseño
+> y decisiones de scope en [BLOG_PLAN §8](BLOG_PLAN.md).
 >
-> **▶️ FOCO PRÓXIMA SESIÓN:** (a) **review de los 33 drafts del blog** (`npm run dev` → localhost:4321) y
-> empezar a **publicar 1/semana** flipeando `draft:false` según el orden de [BLOG_PLAN §5](BLOG_PLAN.md);
-> (b) **S-20 email** (bloquea CTA) — cablear MX/SPF/DKIM Zoho en Route53; (c) **Search Console** — confirmar
-> sitemap "Correcto" + Solicitar indexación de `/`, `/misael`, `/trinitrade`; (d) newsletter S-03 (esperar
-> Buttondown) + S-04 OG image + identidades S-21/S-22.
+> **▶️ FOCO PRÓXIMA SESIÓN:** (a) **⚙️ ACTIVAR EL CRON** — crear Deploy Hook en Vercel (Settings → Git → Deploy
+> Hooks, branch `main`) + cargar URL como secret **`VERCEL_DEPLOY_HOOK`** en GitHub; probar con Actions → "Weekly
+> publish" → Run workflow; (b) **S-20 email** (bloquea CTA *y* Fase 1 newsletter) — Zoho signup + MX/SPF/DKIM en
+> Route53; (c) **Fase 1 newsletter** cuando Buttondown apruebe (RSS-to-email → `/newsletter.xml`); (d) **Fase 2
+> social** crear LinkedIn Page + X; (e) Search Console (indexación) + S-04 OG image. Publicar el siguiente post =
+> `draft:false` + `pubDate` de lunes futuro.
 
 ---
 
@@ -54,11 +54,13 @@ los preparas y me pides OK antes de aplicar a producción.
   sin humo. Audiencia: CTOs, Tech Leads, Founders.
 
 ## 2. Estado al cerrar (verificar con `git status -sb`)
-- `main` = `c5cb727`, en sync, build verde (~11 páginas), `astro check` 0/0/0.
+- `main` = `4bc4d29`, en sync, build verde (13 páginas + 3 feeds RSS), `astro check` 0/0/0.
 - **0 incidencias bloqueantes.** Páginas: home, blog, **`/misael` (CV)**, **`/trinitrade` (caso de estudio)**, todas EN+ES.
-- **SEO**: JSON-LD (Person/Org/WebSite/TechArticle) + Google Search Console verificado (TXT) + sitemap enviado (procesando).
-- **Blog**: 1 post publicado (logs→observabilidad) + **programa COMPLETO: 33/33 candidatos drafteados** (EN+ES = 66 `.md`, 4–5 diagramas SVG + callout + refs cada uno, **todos `draft:true`**), 6 clusters cerrados, [BLOG_PLAN.md](BLOG_PLAN.md) 0 filas en `idea`. **Siguiente: review + publicar 1/semana** flipeando `draft:false`. Assets en `public/blog/<en-slug>/`.
-- **Newsletter (S-03)**: form correcto (endpoint `buttondown.com`); cuenta Buttondown **en revisión**.
+- **SEO**: JSON-LD (Person/Org/WebSite/TechArticle) + Google Search Console verificado (TXT) + sitemap enviado (procesando) + 3 feeds RSS.
+- **Blog**: **2 posts LIVE** (A0 logs→observabilidad + **E1 publicado**) + **31 drafts** en cola (`draft:true`); programa 33/33 completo. Publicar el siguiente = `draft:false` + `pubDate` de **lunes futuro** (lo revela el rebuild del lunes).
+- **Automatización (Fase 0)**: gate `draft`+`pubDate` en `src/utils/posts.ts`; feeds `/rss.xml` `/es/rss.xml` `/newsletter.xml`; cron `weekly-publish.yml` (necesita secret `VERCEL_DEPLOY_HOOK`). Diseño en [BLOG_PLAN §8](BLOG_PLAN.md).
+- **Newsletter (S-03 / Fase 1)**: form correcto (endpoint `buttondown.com`); cuenta Buttondown **en revisión**; al aprobar → RSS-to-email apuntando a `/newsletter.xml`.
+
 
 ## 3. ⚠️ PENDIENTE PRINCIPAL — S-20: email `ping@mizolutions.com` (bloquea el CTA)
 El CTA primario "Book a reliability review" abre `mailto:ping@mizolutions.com`,
@@ -121,11 +123,10 @@ npx astro check        # tipos/plantillas (debe dar 0/0/0)
   `--accept-visibility-change-consequences`.
 
 **Primer paso al abrir:** `git status -sb`, lee [CONTROL_TOWER.md](CONTROL_TOWER.md)
-§1+§2 + [BLOG_PLAN.md](BLOG_PLAN.md). Prioridad del día: **(a)** retomar **Search Console** (confirmar sitemap
-"Correcto" + Inspección de URL → Solicitar indexación de `/`, `/misael`, `/trinitrade`); **(b)** **review del
-draft E1** del blog y seguir drafteando (cluster E o el orden de BLOG_PLAN §5, EN+ES, `draft:true`); **(c)**
-newsletter S-03 (esperar aprobación Buttondown); **(d)** S-20 email (bloquea CTA) + S-04 OG image. El sitio ya
-está LIVE; el trabajo es contenido + crecimiento + SEO, sin romper el minimalismo ni la marca.
+§1+§2 + [BLOG_PLAN §8](BLOG_PLAN.md). Prioridad del día: **(a)** **⚙️ activar el cron** (Deploy Hook en Vercel →
+secret `VERCEL_DEPLOY_HOOK` en GitHub → probar Run workflow); **(b)** **S-20 email** (bloquea CTA + Fase 1); **(c)**
+Fase 1 newsletter (esperar Buttondown) / Fase 2 social (crear LinkedIn + X); **(d)** Search Console + S-04 OG image.
+El sitio ya está LIVE; el trabajo es contenido + crecimiento + automatización, sin romper el minimalismo ni la marca.
 
 > ⚠️ **Footgun de entorno:** la red corporativa del operador (Palo Alto/Mastercard) **sinkholea `mizolutions.com`**
 > → cualquier fetch/curl/navegador desde aquí da **503** (página de bloqueo, NO fallo del sitio). Para verificar
