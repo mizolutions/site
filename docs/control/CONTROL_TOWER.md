@@ -127,9 +127,11 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 > Ordenado por impacto × oportunidad. Backlog completo (S-01..S-23) en
 > [RAID §I](RAID.md) + [ROADMAP](ROADMAP.md).
 
-1. **⚠️ Email `ping@mizolutions.com` funcional (S-20)** — **bloquea el CTA primario** (el `mailto:` rebota:
-   0 MX en la zona) **y la Fase 1 del newsletter** (envío desde dominio). Colaborativo: tú signup Zoho → yo
-   cableo MX/SPF/DKIM en Route53. Dominio: Infra/Growth.
+1. **⚠️ Email `ping@mizolutions.com` funcional (S-20)** — **DNS YA CABLEADO ✅** (2026-06-25): ruta elegida
+   **ImprovMX forwarding (gratis)**, no Zoho (su free desapareció). En Route53 (`Z0623…`): **MX** `10 mx1`/`20 mx2
+   .improvmx.com` + **SPF** `v=spf1 include:spf.improvmx.com ~all` fusionado con el TXT de Google (preservado),
+   cambio **INSYNC**, MX público OK vía 8.8.8.8. **PENDIENTE OPERADOR:** en improvmx.com añadir el alias `ping@` →
+   tu Gmail + **enviar email de prueba**. Desbloquea el CTA primario. Dominio: Infra/Growth.
 2. **Fase 1 newsletter (Buttondown) + Fase 2 social (LinkedIn Page/X)** — RSS-to-email espera **aprobación de
    Buttondown** (al aprobar → apuntar a `/newsletter.xml`, semanal lunes); social espera **crear las cuentas**
    `@mizolutions` + elegir scheduler. Dominio: Growth.
