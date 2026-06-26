@@ -6,23 +6,25 @@
 > cada sesión. Fuente de verdad: [CONTROL_TOWER.md](CONTROL_TOWER.md) +
 > [RAID.md](RAID.md) + [ROADMAP.md](ROADMAP.md).
 >
-> **▶️ ESTADO (apertura 2026-06-25):** el sitio está **LIVE en `https://mizolutions.com`**
+> **▶️ ESTADO (cierre 2026-06-25):** el sitio está **LIVE en `https://mizolutions.com`**
 > (Astro 5 estático en Vercel, bilingüe EN/ES, DNS Route53→Vercel + SSL). Repo
-> `mizolutions/site` **público**, `main` = `4bc4d29`, árbol limpio, build verde (13 páginas + 3 feeds RSS), `astro check` 0/0/0.
-> **Sesión 2026-06-24:** (1) **programa de blog COMPLETO** — 33/33 candidatos drafteados (EN+ES, 6 clusters,
-> 4–5 diagramas + callout + refs cada uno, todos `draft:true`). (2) **Publicado E1** *"I tried to find a trading
-> edge and failed 7 times"* (EN+ES) — 1er post de la cola tras A0 → **2 posts LIVE**. (3) **Automatización de
-> publicación Fase 0** (modelo POSSE "RSS como espina dorsal"): gate por `draft`+`pubDate` (`src/utils/posts.ts`),
-> **3 feeds RSS** (`/rss.xml` EN, `/es/rss.xml` ES, `/newsletter.xml` bilingüe para Buttondown), **GitHub Action
-> cron lunes → Vercel Deploy Hook** (`weekly-publish.yml`, no-opea hasta cargar secret), campo `socialEN`. Diseño
-> y decisiones de scope en [BLOG_PLAN §8](BLOG_PLAN.md).
+> `mizolutions/site` **público**, `main` = `f411328`, árbol limpio, build verde (13 páginas + 3 feeds RSS), `astro check` 0/0/0.
+> **Sesión 2026-06-25:** (1) **cron de publicación ACTIVADO + probado** (Deploy Hook + secret `VERCEL_DEPLOY_HOOK`;
+> `workflow_dispatch` → success, hook HTTP 201) → **Fase 0 100% operativa**, rebuild semanal lunes 13:00 UTC.
+> (2) **S-20 email — recepción FUNCIONAL** vía **ImprovMX** (descartado Zoho, sin free): MX+SPF en Route53 (INSYNC,
+> TXT de Google preservado), `ping@`→Gmail validado → **CTA desbloqueado**. Pendiente OPCIONAL: "responder como ping@".
+> (3) **S-04 OG image**: tarjeta de marca 1200×630 (`sharp` desde SVG, `scripts/build-og.mjs`) cableada site-wide
+> (`og:image`+`twitter:image`+`summary_large_image`). (4) **Buttondown APROBADO** → Fase 1 newsletter desbloqueada;
+> `/newsletter.xml` verificado live+válido (HTTP 200), form OK.
 >
-> **▶️ FOCO PRÓXIMA SESIÓN:** (a) **⚙️ ACTIVAR EL CRON** — crear Deploy Hook en Vercel (Settings → Git → Deploy
-> Hooks, branch `main`) + cargar URL como secret **`VERCEL_DEPLOY_HOOK`** en GitHub; probar con Actions → "Weekly
-> publish" → Run workflow; (b) **S-20 email** (bloquea CTA *y* Fase 1 newsletter) — Zoho signup + MX/SPF/DKIM en
-> Route53; (c) **Fase 1 newsletter** cuando Buttondown apruebe (RSS-to-email → `/newsletter.xml`); (d) **Fase 2
-> social** crear LinkedIn Page + X; (e) Search Console (indexación) + S-04 OG image. Publicar el siguiente post =
-> `draft:false` + `pubDate` de lunes futuro.
+> **▶️ FOCO PRÓXIMA SESIÓN:** (a) **▶️ Fase 1 newsletter — CONFIGURAR** (Buttondown ya aprobado): operador activa
+> add-on **RSS-to-email** (+$9/mo) → feed `https://mizolutions.com/newsletter.xml`, cadencia **Weekly·Monday ≥15:00
+> UTC** (tras el rebuild 13:00), **⚠️ SKIP OLD ITEMS** (si no, manda A0+E1 a todos), behavior draft-first→auto-send;
+> **2 decisiones pendientes** (el operador canceló las preguntas): (a) custom-domain sending → yo cableo DKIM/SPF en
+> Route53 (fusionar SPF con ImprovMX si aplica) vs default Buttondown; (b) draft-first vs auto-send. (b) **Fase 2
+> social** crear LinkedIn Page + X `@mizolutions` + scheduler; (c) **Search Console** indexación; (d) deuda menor
+> (S-05 analytics, S-06 ES 404, S-09 www→apex, S-08 Hobby→Pro). Publicar siguiente post = `draft:false` + `pubDate`
+> de lunes futuro.
 
 ---
 
@@ -54,30 +56,31 @@ los preparas y me pides OK antes de aplicar a producción.
   sin humo. Audiencia: CTOs, Tech Leads, Founders.
 
 ## 2. Estado al cerrar (verificar con `git status -sb`)
-- `main` = `4bc4d29`, en sync, build verde (13 páginas + 3 feeds RSS), `astro check` 0/0/0.
+- `main` = `f411328`, en sync, build verde (13 páginas + 3 feeds RSS), `astro check` 0/0/0.
 - **0 incidencias bloqueantes.** Páginas: home, blog, **`/misael` (CV)**, **`/trinitrade` (caso de estudio)**, todas EN+ES.
-- **SEO**: JSON-LD (Person/Org/WebSite/TechArticle) + Google Search Console verificado (TXT) + sitemap enviado (procesando) + 3 feeds RSS.
-- **Blog**: **2 posts LIVE** (A0 logs→observabilidad + **E1 publicado**) + **31 drafts** en cola (`draft:true`); programa 33/33 completo. Publicar el siguiente = `draft:false` + `pubDate` de **lunes futuro** (lo revela el rebuild del lunes).
-- **Automatización (Fase 0)**: gate `draft`+`pubDate` en `src/utils/posts.ts`; feeds `/rss.xml` `/es/rss.xml` `/newsletter.xml`; cron `weekly-publish.yml` (necesita secret `VERCEL_DEPLOY_HOOK`). Diseño en [BLOG_PLAN §8](BLOG_PLAN.md).
-- **Newsletter (S-03 / Fase 1)**: form correcto (endpoint `buttondown.com`); cuenta Buttondown **en revisión**; al aprobar → RSS-to-email apuntando a `/newsletter.xml`.
+- **SEO**: JSON-LD + Google Search Console verificado (TXT) + sitemap (procesando) + 3 feeds RSS + **OG image** (S-04 ✅, tarjeta de marca site-wide, `summary_large_image`).
+- **Blog**: **2 posts LIVE** (A0 + **E1**) + **31 drafts** en cola; programa 33/33 completo. Publicar el siguiente = `draft:false` + `pubDate` de **lunes futuro** (lo revela el rebuild del lunes).
+- **Automatización (Fase 0)**: gate `draft`+`pubDate` en `src/utils/posts.ts`; feeds `/rss.xml` `/es/rss.xml` `/newsletter.xml`; cron `weekly-publish.yml` **ACTIVO ✅** (secret `VERCEL_DEPLOY_HOOK` cargado, probado HTTP 201). Diseño en [BLOG_PLAN §8](BLOG_PLAN.md).
+- **Email (S-20)**: **recepción FUNCIONAL ✅** — `ping@mizolutions.com` recibe vía **ImprovMX** (MX+SPF en Route53) → Gmail. Pendiente OPCIONAL: "responder como ping@".
+- **Newsletter (S-03 / Fase 1)**: **Buttondown APROBADO ✅**; form OK; feed `/newsletter.xml` live+válido. **Falta configurar RSS-to-email** (ver §3).
 
 
-## 3. ⚠️ PENDIENTE PRINCIPAL — S-20: email `ping@mizolutions.com` (bloquea el CTA)
-El CTA primario "Book a reliability review" abre `mailto:ping@mizolutions.com`,
-pero **hoy ese correo rebota** (0 MX en la zona). Plan elegido = **Zoho Mail Free**.
-Es **colaborativo** (el operador hace el signup; el agente cablea el DNS):
-1. **Operador:** signup en https://www.zoho.com/mail/ → "Forever Free Plan" →
-   "Sign up with a domain I already own" → `mizolutions.com`.
-2. **Operador:** método de verificación **TXT** → copia el valor
-   `zoho-verification=zb…zmverify.zoho.com` y **pásamelo**.
-3. **Agente:** aplica ese TXT en Route53 (`Z062327723TCUEVA9TY8M`) → operador pulsa
-   "Verify".
-4. **Operador:** crea el buzón **`ping@mizolutions.com`**; en *DKIM* genera el
-   **selector + clave** y me los pasa.
-5. **Agente:** aplica en Route53, **con los valores EXACTOS que muestre Zoho**
-   (varían por región): MX (`mx.zoho.com`/`mx2`/`mx3`), SPF `v=spf1 include:zoho.com ~all`,
-   DKIM (`<selector>._domainkey`), DMARC (`_dmarc` → `v=DMARC1; p=none; rua=mailto:ping@mizolutions.com`).
-6. **Test:** enviar a `ping@` y confirmar recepción.
+## 3. ▶️ PENDIENTE PRINCIPAL — Fase 1 newsletter (Buttondown ya aprobado)
+Repo **listo** (feed live+válido, form OK). Es **colaborativo**: el operador configura el dashboard de Buttondown;
+el agente cablea DNS de entregabilidad si se elige custom-domain.
+1. **Operador (Buttondown):** activar add-on **RSS-to-email** (+$9/mo) → nuevo feed
+   `https://mizolutions.com/newsletter.xml`.
+2. **Operador:** cadencia **Weekly · Monday**, hora **≥15:00 UTC** (después del rebuild del cron, 13:00 UTC, para
+   que el post de la semana ya esté en el feed).
+3. **Operador:** **⚠️ activar "Skip old items"** — si no, el primer poll envía A0+E1 (ya publicados) a todos.
+4. **Operador (decisión a):** behavior **"Create a draft"** para el 1er envío (revisar maqueta bilingüe) → luego
+   **"Send automatically"**. (O auto-send directo.)
+5. **Decisión b — envío desde dominio (entregabilidad):** si se quiere `from @mizolutions.com`, el operador inicia
+   "custom/sending domain" en Buttondown → pasa los DNS al **agente** → se aplican en Route53 (`Z062327723TCUEVA9TY8M`).
+   ⚠️ Si Buttondown pide un **include SPF en el apex**, **fusionarlo** con el de ImprovMX en UN solo TXT
+   (`v=spf1 include:spf.improvmx.com include:<buttondown> ~all`) — el dominio admite un solo SPF. Los DKIM suelen ser
+   CNAMEs en subdominio (no chocan). Añadir DMARC `_dmarc` (`v=DMARC1; p=none; rua=mailto:ping@mizolutions.com`).
+6. **Test:** suscribirse con un email + verificar que el digest del lunes llega bien (bilingüe EN arriba / ES abajo).
 
 ## 4. Otros pendientes (ver [ROADMAP](ROADMAP.md) → Now/Next)
 - **S-21 / S-22 (humano):** crear LinkedIn page + X `@mizolutions`. Al existir,
@@ -123,9 +126,11 @@ npx astro check        # tipos/plantillas (debe dar 0/0/0)
   `--accept-visibility-change-consequences`.
 
 **Primer paso al abrir:** `git status -sb`, lee [CONTROL_TOWER.md](CONTROL_TOWER.md)
-§1+§2 + [BLOG_PLAN §8](BLOG_PLAN.md). Prioridad del día: **(a)** **⚙️ activar el cron** (Deploy Hook en Vercel →
-secret `VERCEL_DEPLOY_HOOK` en GitHub → probar Run workflow); **(b)** **S-20 email** (bloquea CTA + Fase 1); **(c)**
-Fase 1 newsletter (esperar Buttondown) / Fase 2 social (crear LinkedIn + X); **(d)** Search Console + S-04 OG image.
+§1+§2 + [BLOG_PLAN §8](BLOG_PLAN.md) §3 de este prompt. Prioridad del día: **(a)** **▶️ Fase 1 newsletter** —
+guiar al operador a configurar Buttondown RSS-to-email (feed `/newsletter.xml`, Monday ≥15:00 UTC, **skip-old**,
+draft→auto-send) + 2 decisiones (custom-domain sending → DNS en Route53 / draft-vs-autosend); **(b)** **Fase 2
+social** (crear LinkedIn Page + X `@mizolutions` + scheduler); **(c)** Search Console (indexación); **(d)** deuda
+menor (S-05 analytics, S-06 ES 404, S-09 www→apex). Ya hechos: cron (Fase 0), email entrante (S-20), OG image (S-04).
 El sitio ya está LIVE; el trabajo es contenido + crecimiento + automatización, sin romper el minimalismo ni la marca.
 
 > ⚠️ **Footgun de entorno:** la red corporativa del operador (Palo Alto/Mastercard) **sinkholea `mizolutions.com`**
