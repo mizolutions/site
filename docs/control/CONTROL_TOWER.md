@@ -5,16 +5,17 @@
 > **Owner:** tú (single operator). **Cadencia:** actualizar al inicio Y al cierre
 > de cada sesión que toque el sitio.
 >
-> **Última actualización:** 2026-06-25 (**cron de publicación ACTIVADO + probado**). El sitio
+> **Última actualización:** 2026-06-25 (**cron de publicación ACTIVADO + email entrante FUNCIONAL**). El sitio
 > sigue **LIVE en `https://mizolutions.com`** (Astro 5 estático en Vercel, bilingüe EN/ES). Repo
 > `mizolutions/site` (**público**), `main` = `d7dbd86`, build verde (13 páginas + 3 feeds RSS), `astro check` 0/0/0.
 >
-> **🟢 Sesión 2026-06-25 — automatización Fase 0 ACTIVADA (cron live).** El operador creó el Deploy Hook en
-> Vercel + cargó el secret `VERCEL_DEPLOY_HOOK`; disparé `weekly-publish.yml` vía `workflow_dispatch` → **success**,
-> el hook respondió **HTTP 201** (rebuild de Vercel disparado). El rebuild semanal de los lunes (13:00 UTC) queda
-> **operativo** → cada lunes revela el post cuyo `pubDate` haya llegado. Refrescado el prompt de sesión (estaba
-> stale: `main`, E1 publicado, Fase 0). **Top-3 reordenado:** ahora #1 = S-20 email (desbloquea CTA + envío del
-> newsletter), #2 = Fase 1 Buttondown / Fase 2 social, #3 = Search Console + OG image.
+> **🟢 Sesión 2026-06-25 — automatización Fase 0 ACTIVADA (cron live) + email entrante (S-20).** (A) El operador
+> creó el Deploy Hook en Vercel + cargó el secret `VERCEL_DEPLOY_HOOK`; disparé `weekly-publish.yml` vía
+> `workflow_dispatch` → **success**, hook **HTTP 201** (rebuild de Vercel disparado). Rebuild semanal de los lunes
+> (13:00 UTC) **operativo**. (B) **S-20 email — recepción FUNCIONAL ✅**: tras descartar Zoho (sin free), ruta
+> **ImprovMX forwarding (gratis)**; cableé **MX + SPF** en Route53 (`Z0623…`, INSYNC, TXT de Google preservado);
+> el operador añadió el alias `ping@`→Gmail y **validó la recepción**. **El CTA primario ya funciona.** Queda como
+> pendiente OPCIONAL el "responder como ping@" (ImprovMX gratis solo recibe). Refrescado el prompt de sesión.
 >
 > **🟢 Sesión 2026-06-24 (tarde) — 1er post publicado + automatización de publicación (Fase 0).**
 > (1) **Publicado E1** *"I tried to find a trading edge and failed 7 times"* (EN+ES, `draft:false`) — primer post
@@ -111,8 +112,8 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 | # | Dominio | Estado | KPI primario | Valor actual | Owner |
 |---|---|---|---|---|---|
 | 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`7147db4`, Astro 5 estático, `npm run build` verde (13 páginas + 3 feeds RSS + sitemap), `astro check` 0/0/0 | tú |
-| 2 | **Content / Blog** | 🟢 | posts live · cola · automatización | **2 posts LIVE** (A0 + **E1 publicado hoy**) + **31 drafts** en cola. **NUEVO 2026-06-24 (tarde):** automatización de publicación **Fase 0** — gate por fecha+draft, **3 feeds RSS** (`/rss.xml`, `/es/rss.xml`, `/newsletter.xml` bilingüe), cron lunes → Vercel Deploy Hook (**ACTIVO** ✅, probado 2026-06-25 HTTP 201). Mecánica de publicar: `draft:false` + `pubDate` de lunes futuro. Ver [BLOG_PLAN §8](BLOG_PLAN.md). **email aún no funciona** (S-20). 404 solo EN (S-06) | tú |
-| 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. **NUEVO:** TXT `google-site-verification` añadido para Search Console. `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
+| 2 | **Content / Blog** | 🟢 | posts live · cola · automatización | **2 posts LIVE** (A0 + **E1 publicado hoy**) + **31 drafts** en cola. **NUEVO 2026-06-24 (tarde):** automatización de publicación **Fase 0** — gate por fecha+draft, **3 feeds RSS** (`/rss.xml`, `/es/rss.xml`, `/newsletter.xml` bilingüe), cron lunes → Vercel Deploy Hook (**ACTIVO** ✅, probado 2026-06-25 HTTP 201). Mecánica de publicar: `draft:false` + `pubDate` de lunes futuro. Ver [BLOG_PLAN §8](BLOG_PLAN.md). **email recibe ✅** (S-20, ImprovMX → Gmail). 404 solo EN (S-06) | tú |
+| 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · email · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. TXT `google-site-verification` (Search Console). **NUEVO 2026-06-25:** **email entrante ✅** — MX ImprovMX (`mx1`/`mx2`) + SPF, `ping@`→Gmail (S-20). `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
 | 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · structured data · analytics | SEO base OK (canonical+hreflang+OG+sitemap+robots). **NUEVO 2026-06-23:** **JSON-LD** (Person/Organization/WebSite/TechArticle) + **Google Search Console verificado** + sitemap enviado (**procesando**, retomar mañana). **Pendiente:** OG image (S-04), Analytics OFF (S-05), **newsletter (S-03) cuenta Buttondown en revisión** | tú |
 | 5 | **Security / Deps** | 🟢 | headers · npm audit | CSP+HSTS+headers vía `vercel.json`. `npm audit`: 3 highs **aceptados** (no aplican a build estático). **Repo público** → account-id/zone-id en docs (R-07, decisión S-11) | tú |
 | 6 | **Governance / Repo** | 🟢 | description · topics · backlog | ✅ description + 13 topics + homepage→`mizolutions.com` (S-07 hecho). LICENSE a decidir (S-13). Backlog 23 tareas trackeadas (3 hechas) | tú |
@@ -127,20 +128,23 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 > Ordenado por impacto × oportunidad. Backlog completo (S-01..S-23) en
 > [RAID §I](RAID.md) + [ROADMAP](ROADMAP.md).
 
-1. **⚠️ Email `ping@mizolutions.com` funcional (S-20)** — **DNS YA CABLEADO ✅** (2026-06-25): ruta elegida
-   **ImprovMX forwarding (gratis)**, no Zoho (su free desapareció). En Route53 (`Z0623…`): **MX** `10 mx1`/`20 mx2
-   .improvmx.com` + **SPF** `v=spf1 include:spf.improvmx.com ~all` fusionado con el TXT de Google (preservado),
-   cambio **INSYNC**, MX público OK vía 8.8.8.8. **PENDIENTE OPERADOR:** en improvmx.com añadir el alias `ping@` →
-   tu Gmail + **enviar email de prueba**. Desbloquea el CTA primario. Dominio: Infra/Growth.
-2. **Fase 1 newsletter (Buttondown) + Fase 2 social (LinkedIn Page/X)** — RSS-to-email espera **aprobación de
-   Buttondown** (al aprobar → apuntar a `/newsletter.xml`, semanal lunes); social espera **crear las cuentas**
-   `@mizolutions` + elegir scheduler. Dominio: Growth.
-3. **Search Console (indexación) + OG image (S-04)** — GSC: solicitar indexación de `/`, `/misael`,
-   `/trinitrade`; falta OG image 1200×630 para previews al compartir. Dominio: SEO/Growth.
+1. **Fase 1 newsletter + Fase 2 social (bloqueadas por terceros)** — newsletter RSS-to-email espera **aprobación
+   de Buttondown** (al aprobar → apuntar a `/newsletter.xml`, semanal lunes); social espera **crear las cuentas**
+   `@mizolutions` (LinkedIn Page + X) + elegir scheduler. Dominio: Growth.
+2. **OG image (S-04) + Search Console (indexación)** — falta **OG image 1200×630** para previews al compartir
+   (importa antes de activar social); GSC: solicitar indexación de `/`, `/misael`, `/trinitrade`. Dominio: SEO/Growth.
+3. **Deuda menor:** Analytics OFF (S-05), 404 solo EN (S-06), `www`→apex (S-09), Vercel Hobby→Pro a decidir (S-08).
+   Dominio: Infra/SEO.
 
-> ✅ **Hecho 2026-06-25:** el **cron de publicación está ACTIVO y probado** — Deploy Hook creado + secret
-> `VERCEL_DEPLOY_HOOK` cargado; `workflow_dispatch` corrió **success**, hook respondió **HTTP 201** (rebuild OK).
-> Cada lunes 13:00 UTC el sitio se reconstruye solo. Fase 0 100% operativa.
+> ✅ **Hecho 2026-06-25:** **(1)** **cron de publicación ACTIVO y probado** — Deploy Hook + secret
+> `VERCEL_DEPLOY_HOOK`, `workflow_dispatch` **success**, hook **HTTP 201**; rebuild semanal (lunes 13:00 UTC)
+> operativo, Fase 0 100%. **(2)** **S-20 email — recepción FUNCIONAL ✅**: `ping@mizolutions.com` recibe vía
+> **ImprovMX** (MX+SPF en Route53, INSYNC, TXT de Google preservado) → reenvía a Gmail, **validado por el operador**.
+> **El CTA primario ya funciona.**
+>
+> ⏳ **Pendiente OPCIONAL (sin prisa) — "responder como ping@":** ImprovMX gratis es **solo recibir**. Para
+> **responder mostrando** `ping@mizolutions.com` se configura aparte (SMTP de ImprovMX de pago, o "Send mail as"
+> en Gmail). **No es necesario para el CTA**; se hace cuando el operador quiera.
 
 ---
 
