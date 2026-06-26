@@ -114,7 +114,7 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 | 1 | **Site / Deploy** | 🟢 | build verde · deploy Ready | Vercel **Ready**, `main`=`7147db4`, Astro 5 estático, `npm run build` verde (13 páginas + 3 feeds RSS + sitemap), `astro check` 0/0/0 | tú |
 | 2 | **Content / Blog** | 🟢 | posts live · cola · automatización | **2 posts LIVE** (A0 + **E1 publicado hoy**) + **31 drafts** en cola. **NUEVO 2026-06-24 (tarde):** automatización de publicación **Fase 0** — gate por fecha+draft, **3 feeds RSS** (`/rss.xml`, `/es/rss.xml`, `/newsletter.xml` bilingüe), cron lunes → Vercel Deploy Hook (**ACTIVO** ✅, probado 2026-06-25 HTTP 201). Mecánica de publicar: `draft:false` + `pubDate` de lunes futuro. Ver [BLOG_PLAN §8](BLOG_PLAN.md). **email recibe ✅** (S-20, ImprovMX → Gmail). 404 solo EN (S-06) | tú |
 | 3 | **Infra / DNS / SSL** | 🟢 | dominio Valid · SSL · email · zona aislada | `mizolutions.com` **Valid**, `A→216.198.79.1` (Route53 `Z062327723TCUEVA9TY8M`), SSL auto. TXT `google-site-verification` (Search Console). **NUEVO 2026-06-25:** **email entrante ✅** — MX ImprovMX (`mx1`/`mx2`) + SPF, `ping@`→Gmail (S-20). `www` pendiente (S-09); Hobby→Pro a decidir (S-08) | tú |
-| 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · structured data · analytics | SEO base OK (canonical+hreflang+OG+sitemap+robots). **NUEVO 2026-06-23:** **JSON-LD** (Person/Organization/WebSite/TechArticle) + **Google Search Console verificado** + sitemap enviado (**procesando**, retomar mañana). **Pendiente:** OG image (S-04), Analytics OFF (S-05), **newsletter (S-03) cuenta Buttondown en revisión** | tú |
+| 4 | **SEO / Analytics / Growth** | 🟡 | sitemap · meta · structured data · analytics | SEO base OK (canonical+hreflang+OG+sitemap+robots). **NUEVO 2026-06-23:** **JSON-LD** (Person/Organization/WebSite/TechArticle) + **Google Search Console verificado** + sitemap enviado (**procesando**, retomar mañana). **Pendiente:** **OG image ✅** (S-04, tarjeta de marca 1200×630), Analytics OFF (S-05), **newsletter (S-03) cuenta Buttondown en revisión** | tú |
 | 5 | **Security / Deps** | 🟢 | headers · npm audit | CSP+HSTS+headers vía `vercel.json`. `npm audit`: 3 highs **aceptados** (no aplican a build estático). **Repo público** → account-id/zone-id en docs (R-07, decisión S-11) | tú |
 | 6 | **Governance / Repo** | 🟢 | description · topics · backlog | ✅ description + 13 topics + homepage→`mizolutions.com` (S-07 hecho). LICENSE a decidir (S-13). Backlog 23 tareas trackeadas (3 hechas) | tú |
 
@@ -131,8 +131,8 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 1. **Fase 1 newsletter + Fase 2 social (bloqueadas por terceros)** — newsletter RSS-to-email espera **aprobación
    de Buttondown** (al aprobar → apuntar a `/newsletter.xml`, semanal lunes); social espera **crear las cuentas**
    `@mizolutions` (LinkedIn Page + X) + elegir scheduler. Dominio: Growth.
-2. **OG image (S-04) + Search Console (indexación)** — falta **OG image 1200×630** para previews al compartir
-   (importa antes de activar social); GSC: solicitar indexación de `/`, `/misael`, `/trinitrade`. Dominio: SEO/Growth.
+2. **Search Console (indexación)** — solicitar indexación de `/`, `/misael`, `/trinitrade` en GSC (confirmar
+   sitemap "Correcto"). Dominio: SEO.
 3. **Deuda menor:** Analytics OFF (S-05), 404 solo EN (S-06), `www`→apex (S-09), Vercel Hobby→Pro a decidir (S-08).
    Dominio: Infra/SEO.
 
@@ -140,7 +140,9 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 > `VERCEL_DEPLOY_HOOK`, `workflow_dispatch` **success**, hook **HTTP 201**; rebuild semanal (lunes 13:00 UTC)
 > operativo, Fase 0 100%. **(2)** **S-20 email — recepción FUNCIONAL ✅**: `ping@mizolutions.com` recibe vía
 > **ImprovMX** (MX+SPF en Route53, INSYNC, TXT de Google preservado) → reenvía a Gmail, **validado por el operador**.
-> **El CTA primario ya funciona.**
+> **El CTA primario ya funciona.** **(3)** **OG image (S-04)** — tarjeta de marca 1200×630 branded (dark + esmeralda,
+> "DevOps & SRE") generada con `sharp` desde SVG (`scripts/build-og.mjs`), cableada **site-wide** (`og:image` +
+> `twitter:image` + `summary_large_image`) → todos los links compartidos ya muestran tarjeta.
 >
 > ⏳ **Pendiente OPCIONAL (sin prisa) — "responder como ping@":** ImprovMX gratis es **solo recibir**. Para
 > **responder mostrando** `ping@mizolutions.com` se configura aparte (SMTP de ImprovMX de pago, o "Send mail as"
@@ -152,7 +154,7 @@ Estado: 🟢 OK · 🟡 atención · 🔴 acción inmediata · ⚪ sin datos
 
 | Hecho | Valor |
 |---|---|
-| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `d7dbd86` |
+| Repo | `mizolutions/site` (**público**, build-in-public), `main` = `3b022f7` |
 | Local | `/home/dc-user/workspace/mizolutions-site` (sibling del trading-system, **fuera** del workspace VS Code) |
 | Stack | Astro 5 estático, TypeScript, CSS tokens a mano, i18n EN/ES |
 | Hosting | Vercel (plan **Hobby** — ⚠️ uso comercial pide **Pro** por ToS) |
